@@ -1,0 +1,13 @@
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\DDD.CommercePoC.SharedKernel.dll
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\DDD.CommercePoC.SharedKernel.pdb
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\Castle.Core.dll
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\Castle.Windsor.dll
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\log4net.dll
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\Castle.Core.xml
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\Castle.Windsor.xml
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\log4net.xml
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\obj\Debug\DDD.CommercePoC.SharedKernel.csprojResolveAssemblyReference.cache
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\obj\Debug\DDD.CommercePoC.SharedKernel.dll
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\obj\Debug\DDD.CommercePoC.SharedKernel.pdb
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\JetBrains.Annotations.dll
+C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel\bin\Debug\JetBrains.Annotations.xml
