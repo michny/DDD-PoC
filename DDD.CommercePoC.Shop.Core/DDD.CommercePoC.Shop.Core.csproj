@@ -88,6 +88,7 @@
     <Compile Include="Model\Events\CartLineItemUpdatedEvent.cs" />
     <Compile Include="Model\Events\OrderCancelledEvent.cs" />
     <Compile Include="Model\Events\OrderPlacedEvent.cs" />
+    <Compile Include="Model\Events\OrderRestoredEvent.cs" />
     <Compile Include="Model\OrderAggregate\Order.cs" />
     <Compile Include="Model\OrderAggregate\OrderLineItem.cs" />
     <Compile Include="Model\OrderAggregate\States\OrderState.cs" />

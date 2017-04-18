@@ -5,7 +5,9 @@ namespace DDD.CommercePoC.Shop.Core.Model.OrderAggregate.States
 {
     public class OrderStatePlaced : OrderState
     {
-        public OrderStatePlaced() : base("Placed")
+        public new static readonly string Name = "Placed";
+
+        public OrderStatePlaced() : base(Name)
         {
         }
 
