@@ -1,5 +1,8 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Data.Entity;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using DDD.CommercePoC.Shop.Core.Model;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -15,6 +18,8 @@ namespace DDD.CommercePoC.Web.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public Guid? CustomerId { get; set; } 
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -23,6 +28,8 @@ namespace DDD.CommercePoC.Web.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Customer> Customers { get; set; }
 
         public static ApplicationDbContext Create()
         {

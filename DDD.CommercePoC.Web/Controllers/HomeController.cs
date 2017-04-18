@@ -1,48 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
-using AutoMapper;
 using DDD.CommercePoC.SharedKernel.Interfaces;
 using DDD.CommercePoC.Shop.Core.Interfaces;
-using DDD.CommercePoC.Shop.Core.Model;
 using DDD.CommercePoC.Web.Infrastructure.Alerts;
-using DDD.CommercePoC.Web.Models;
+using DDD.CommercePoC.Web.Infrastructure.Extensions;
 
 namespace DDD.CommercePoC.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly ICartRepository _cartRepository;
+        private readonly IProductRepository _productRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ICurrentCart _currentCart;
+        private readonly ICurrentUser _currentUser;
+        private readonly HttpContextWrapper _httpContext;
 
-        public HomeController(IOrderRepository orderRepository, IUnitOfWork unitOfWork)
+        public HomeController(ICartRepository cartRepository, IProductRepository productRepository, 
+            IUnitOfWork unitOfWork, ICurrentCart currentCart, ICurrentUser currentUser, HttpContextWrapper httpContext)
         {
-            _orderRepository = orderRepository;
+            _cartRepository = cartRepository;
+            _productRepository = productRepository;
             _unitOfWork = unitOfWork;
+            _currentCart = currentCart;
+            _currentUser = currentUser;
+            _httpContext = httpContext;
         }
 
         public ActionResult Index()
         {
-            return View().WithInfo("Hej!");
+            var user = _currentUser.User.GetApplicationUser(_httpContext);
+
+            return View().WithInfo($"CartId {_currentCart.Cart.Id}. Cart Items count: {_currentCart.Cart.CartLineItems.Count}. " +
+                                   $"Username: {user.UserName}. CustomerId: {user.CustomerId}");
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            var orders = _orderRepository.ManyWithOrderItems().ToList();
+            var carts = _cartRepository.ManyWithCartLineItems().ToList();
+            var variants = _productRepository.ManyWithVariants().SelectMany(e => e.Variants);
 
             using (_unitOfWork.BeginTransaction())
             {
-                orders.First().AddVariant(new Variant("My-Test-product-variation-1", new Guid("22222222-2222-2222-2222-222222222222"), "testname"));
+                carts.First().AddVariant(variants.FirstOrDefault());
             }
-
-            var vm = new ViewOrderListViewModel
-            {
-                Orders = Mapper.Map<List<ViewOrderViewModel>>(orders)
-            };
-
+            
             return View();
         }
 

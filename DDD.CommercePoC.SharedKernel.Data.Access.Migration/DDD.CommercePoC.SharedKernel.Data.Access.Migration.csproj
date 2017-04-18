@@ -51,9 +51,25 @@
   <ItemGroup>
     <Compile Include="Configuration\DbConfiguration.cs" />
     <Compile Include="MasterContext.cs" />
-    <Compile Include="Migrations\201612302003530_Initial.cs" />
-    <Compile Include="Migrations\201612302003530_Initial.Designer.cs">
-      <DependentUpon>201612302003530_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201704081839470_Initial.cs" />
+    <Compile Include="Migrations\201704081839470_Initial.Designer.cs">
+      <DependentUpon>201704081839470_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704081847303_MoneyOnVariant.cs" />
+    <Compile Include="Migrations\201704081847303_MoneyOnVariant.Designer.cs">
+      <DependentUpon>201704081847303_MoneyOnVariant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704092019038_CartPrices.cs" />
+    <Compile Include="Migrations\201704092019038_CartPrices.Designer.cs">
+      <DependentUpon>201704092019038_CartPrices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704100829247_RemovedCartPrices.cs" />
+    <Compile Include="Migrations\201704100829247_RemovedCartPrices.Designer.cs">
+      <DependentUpon>201704100829247_RemovedCartPrices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704152029058_AddCreatedModifiedTimeStamps.cs" />
+    <Compile Include="Migrations\201704152029058_AddCreatedModifiedTimeStamps.Designer.cs">
+      <DependentUpon>201704152029058_AddCreatedModifiedTimeStamps.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,8 +93,20 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612302003530_Initial.resx">
-      <DependentUpon>201612302003530_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704081839470_Initial.resx">
+      <DependentUpon>201704081839470_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704081847303_MoneyOnVariant.resx">
+      <DependentUpon>201704081847303_MoneyOnVariant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704092019038_CartPrices.resx">
+      <DependentUpon>201704092019038_CartPrices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704100829247_RemovedCartPrices.resx">
+      <DependentUpon>201704100829247_RemovedCartPrices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704152029058_AddCreatedModifiedTimeStamps.resx">
+      <DependentUpon>201704152029058_AddCreatedModifiedTimeStamps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

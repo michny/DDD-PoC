@@ -3,5 +3,7 @@
     public interface IRunOnError
     {
         void Execute();
+
+        int Order { get; }
     }
 }

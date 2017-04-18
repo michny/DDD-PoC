@@ -89,7 +89,7 @@ namespace DDD.CommercePoC.SharedKernel.Model
 
         public static bool operator ==(ValueObject<T> x, ValueObject<T> y)
         {
-            if (x == null)
+            if (ReferenceEquals(x, null))
                 throw new ArgumentNullException(nameof(x));
             return x.Equals(y);
         }

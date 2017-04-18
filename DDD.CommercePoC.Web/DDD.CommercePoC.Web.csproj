@@ -261,8 +261,13 @@
     <Compile Include="Infrastructure\Alerts\Alert.cs" />
     <Compile Include="Infrastructure\Alerts\AlertDecoratorResult.cs" />
     <Compile Include="Infrastructure\Alerts\AlertExtensions.cs" />
+    <Compile Include="Infrastructure\CartUserSessionMapper.cs" />
+    <Compile Include="Infrastructure\Extensions\PrincipalExtensions.cs" />
+    <Compile Include="Infrastructure\WebCurrentCart.cs" />
+    <Compile Include="Infrastructure\WebCurrentUser.cs" />
     <Compile Include="Infrastructure\Mapping\OrderProfile.cs" />
     <Compile Include="Installers\ControllerInstaller.cs" />
+    <Compile Include="Installers\InfrastructureInstaller.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />

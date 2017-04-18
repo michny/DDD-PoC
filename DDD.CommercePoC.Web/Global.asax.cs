@@ -53,9 +53,24 @@ namespace DDD.CommercePoC.Web
             RunTasksAfterRequest();
         }
 
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+            RunTasksAfterAuth();
+        }
+
+        protected void Application_AcquireRequestState(object sender, EventArgs e)
+        {
+            RunTasksOnRequestRightBeforeCustomCode();
+        }
+
         protected void Application_End()
         {
             RunTasksOnAppEnd();
+        }
+
+        protected void Session_Start()
+        {
+            RunTasksOnNewSession();
         }
 
         private void EagerMigration()
@@ -63,34 +78,50 @@ namespace DDD.CommercePoC.Web
             //Ensuring migration for MasterContext
             var context = new MasterContext();
             // ReSharper disable once UnusedVariable : Required for eager migration
-            var eagerMigration = context.Orders.ToList();
+            var eagerMigration = context.Products.ToList();
         }
 
         #region Tasks
         private void RunTasksOnStartup()
         {
-            _container.ResolveAll<IRunOnStartup>().ForEach(task => task.Execute());
+            _container.ResolveAll<IRunOnStartup>().OrderBy(task => task.Order).ForEach(task => task.Execute());
         }
 
         private void RunTasksOnError()
         {
-            _container.ResolveAll<IRunOnError>().ForEach(task => task.Execute());
+            _container.ResolveAll<IRunOnError>().OrderBy(task => task.Order).ForEach(task => task.Execute());
+        }
+
+        private void RunTasksOnNewSession()
+        {
+            _container.ResolveAll<IRunOnNewSession>().OrderBy(task => task.Order).ForEach(task => task.Execute());
         }
 
         private void RunTasksOnRequest()
         {
-            _container.ResolveAll<IRunOnRequest>().ForEach(task => task.Execute());
+            _container.ResolveAll<IRunOnRequest>().OrderBy(task => task.Order).ForEach(task => task.Execute());
+        }
+
+        private void RunTasksAfterAuth()
+        {
+            _container.ResolveAll<IRunAfterAuth>().OrderBy(task => task.Order).ForEach(task => task.Execute());
         }
 
         private void RunTasksAfterRequest()
         {
-            _container.ResolveAll<IRunAfterRequest>().ForEach(task => task.Execute());
+            _container.ResolveAll<IRunAfterRequest>().OrderBy(task => task.Order).ForEach(task => task.Execute());
         }
 
         private void RunTasksOnAppEnd()
         {
-            _container.ResolveAll<IRunOnAppEnd>().ForEach(task => task.Execute());
+            _container.ResolveAll<IRunOnAppEnd>().OrderBy(task => task.Order).ForEach(task => task.Execute());
         }
+
+        private void RunTasksOnRequestRightBeforeCustomCode()
+        {
+            _container.ResolveAll<IRunOnRequestRightBeforeCustomCode>().OrderBy(task => task.Order).ForEach(task => task.Execute());
+        }
+
         #endregion
     }
 }

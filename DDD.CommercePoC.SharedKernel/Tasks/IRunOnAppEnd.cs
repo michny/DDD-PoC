@@ -3,5 +3,7 @@
     public interface IRunOnAppEnd
     {
         void Execute();
+
+        int Order { get; }
     }
 }

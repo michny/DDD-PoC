@@ -7,6 +7,10 @@ namespace DDD.CommercePoC.SharedKernel.Model
     {
         public TId Id { get; protected set; }
 
+        public DateTime Created { get; protected set; }
+
+        public DateTime LastModified { get; protected set; }
+
         protected Entity(TId id)
         {
             if (Equals(id, default(TId)))
@@ -15,6 +19,8 @@ namespace DDD.CommercePoC.SharedKernel.Model
             }
 
             Id = id;
+            Created = DateTime.UtcNow;
+            LastModified = DateTime.UtcNow;
         }
 
         // EF requires an empty constructor
@@ -31,11 +37,13 @@ namespace DDD.CommercePoC.SharedKernel.Model
             {
                 return Equals(entity);
             }
+            // ReSharper disable once BaseObjectEqualsIsObjectEquals : Acceptable for simple types that do not override further
             return base.Equals(otherObject);
         }
 
         public override int GetHashCode()
         {
+            // ReSharper disable once NonReadonlyMemberInGetHashCode : Id cannot change as it is Db generated
             return Id.GetHashCode();
         }
 

@@ -1,5 +1,7 @@
 ﻿using System.Data.Entity;
 using DDD.CommercePoC.Shop.Core.Model;
+using DDD.CommercePoC.Shop.Core.Model.CartAggregate;
+using DDD.CommercePoC.Shop.Core.Model.ProductAggregate;
 
 namespace DDD.CommercePoC.SharedKernel.Data.Access.Migration
 {
@@ -10,9 +12,9 @@ namespace DDD.CommercePoC.SharedKernel.Data.Access.Migration
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MasterContext, Configuration.DbConfiguration>());
         }
 
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<Cart> Orders { get; set; }
 
-        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<CartLineItem> OrderItems { get; set; }
 
         public DbSet<Product> Products { get; set; }
 

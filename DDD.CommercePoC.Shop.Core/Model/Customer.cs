@@ -1,14 +1,14 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using DDD.CommercePoC.SharedKernel.Model;
+using DDD.CommercePoC.SharedKernel.Model.Interfaces;
 
 namespace DDD.CommercePoC.Shop.Core.Model
 {
-    public class Customer : Entity<Guid>
+    public class Customer : Entity<Guid>, IAggregateRoot
     {
-        public Customer(Guid id) : base(id)
+        public Customer(Guid id, string name) : base(id)
         {
-            
+            Name = name;
         }
 
         // ReSharper disable once UnusedMember.Local : Reguired by EF

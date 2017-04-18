@@ -23,3 +23,32 @@ C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommerceP
 C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.Initial.resources
 C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.dll.config
 C:\Users\mny\Documents\Visual Studio 2015\Projects\DDD.CommercePoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.Shop.Core.dll.config
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.dll.config
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.pdb
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.Data.Access.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.Shop.Core.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\EntityFramework.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\log4net.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\Castle.Windsor.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\Castle.Core.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.Data.Access.pdb
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.SharedKernel.pdb
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.Shop.Core.pdb
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\DDD.CommercePoC.Shop.Core.dll.config
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\EntityFramework.xml
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\log4net.xml
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\Castle.Windsor.xml
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\Castle.Core.xml
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.csprojResolveAssemblyReference.cache
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.pdb
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.Initial.resources
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.csproj.GenerateResource.Cache
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.MoneyOnVariant.resources
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.CartPrices.resources
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.RemovedCartPrices.resources
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.AddCreatedModifiedTimeStamps.resources

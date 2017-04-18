@@ -3,5 +3,7 @@
     public interface IRunOnStartup
     {
         void Execute();
+
+        int Order { get; }
     }
 }

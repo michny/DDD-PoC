@@ -3,5 +3,7 @@
     public interface IRunOnRequest
     {
         void Execute();
+
+        int Order { get; }
     }
 }

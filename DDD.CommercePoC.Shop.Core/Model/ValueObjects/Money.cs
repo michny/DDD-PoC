@@ -12,9 +12,12 @@ namespace DDD.CommercePoC.Shop.Core.Model.ValueObjects
             Amount = amount;
         }
 
-        public Currency Currency { get; }
+        // ReSharper disable once UnusedMember.Local : Required by EF
+        private Money() { }
 
-        public decimal Amount { get; }
+        public Currency Currency { get; private set; }
+
+        public decimal Amount { get; private set; }
 
         public override string ToString()
         {

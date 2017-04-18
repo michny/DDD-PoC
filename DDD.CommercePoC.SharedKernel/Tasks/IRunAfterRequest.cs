@@ -3,5 +3,7 @@
     public interface IRunAfterRequest
     {
         void Execute();
+
+        int Order { get; }
     }
 }
