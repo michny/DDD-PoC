@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using DDD.CommercePoC.SharedKernel.Model;
 using DDD.CommercePoC.SharedKernel.Model.Interfaces;
@@ -24,12 +25,12 @@ namespace DDD.CommercePoC.Shop.Core.Model.OrderAggregate
         public Guid CustomerId { get; private set; }
         public Money Total { get; internal set; }
         public List<OrderLineItem> OrderLineItems { get; private set; } = new List<OrderLineItem>();
-        public string StateString { get; private set; }
-
+        public string StateName { get; private set; }
+        [NotMapped]
         public OrderState State
         {
-            get => OrderStateFactory.GetState(StateString);
-            private set => StateString = value.GetType().Name;
+            get => OrderStateFactory.GetState(StateName);
+            private set => StateName = value.GetType().Name;
         }
 
         private static OrderLineItem ConvertCartLineItemToOrderLineItem(CartLineItem cartLineItem, IDictionary<Guid, Money> cartLineItemPrices)
