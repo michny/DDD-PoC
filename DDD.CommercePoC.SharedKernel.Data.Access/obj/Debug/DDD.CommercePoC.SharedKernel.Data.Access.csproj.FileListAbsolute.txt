@@ -32,3 +32,4 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access\b
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.csprojResolveAssemblyReference.cache
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.pdb
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access\bin\Debug\System.ValueTuple.dll

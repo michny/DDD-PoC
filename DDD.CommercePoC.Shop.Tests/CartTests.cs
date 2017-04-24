@@ -22,6 +22,7 @@ namespace DDD.CommercePoC.Shop.Tests
         private static Mock<IHandle<CartLineItemUpdatedEvent>> _updatedEventHandlerMock;
         private static Mock<IHandle<CartLineItemDeletedEvent>> _deletedEventHandlerMock;
 
+        #region Initialization
 
         [ClassInitialize]
         public static void Initialize(TestContext context)
@@ -44,6 +45,10 @@ namespace DDD.CommercePoC.Shop.Tests
             _updatedEventHandlerMock.ResetCalls();
             _deletedEventHandlerMock.ResetCalls();
         }
+
+        #endregion
+
+        #region Add Variants
 
         [TestMethod]
         public void AddVariantToCartAsNewCartLineItem()
@@ -85,6 +90,10 @@ namespace DDD.CommercePoC.Shop.Tests
             _updatedEventHandlerMock.Verify(e => e.Handle(It.IsAny<CartLineItemUpdatedEvent>()), Times.Once);
             _deletedEventHandlerMock.Verify(e => e.Handle(It.IsAny<CartLineItemDeletedEvent>()), Times.Never);
         }
+
+        #endregion
+
+        #region Remove Variants
 
         [TestMethod]
         public void RemoveVariantFromCartResultingInEmptyCartLineItem()
@@ -155,5 +164,116 @@ namespace DDD.CommercePoC.Shop.Tests
                 _deletedEventHandlerMock.Verify(e => e.Handle(It.IsAny<CartLineItemDeletedEvent>()), Times.Never);
             }
         }
+
+        #endregion
+
+        #region Merge Carts
+
+        [TestMethod]
+        public void MergeCartEmptySourceEmptyInputCart()
+        {
+            //Arrange
+            var srcCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            
+            var inputCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+
+            //Act
+            srcCart.Merge(inputCart);
+
+            //Assert
+            Assert.AreEqual(0, srcCart.CartLineItems.Count);
+        }
+
+        [TestMethod]
+        public void MergeCartEmptySourceNonEmptyInputCart()
+        {
+            //Arrange
+            var srcCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            var variant1 = new Variant("TestVariant1", Guid.NewGuid(), "Test Variant 1", new Money(Currency.Dkk, 10));
+            var variant2 = new Variant("TestVariant2", Guid.NewGuid(), "Test Variant 2", new Money(Currency.Dkk, 10));
+            srcCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), srcCart.Id, variant1));
+            srcCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), srcCart.Id, variant2));
+
+            var inputCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+
+            //Act
+            srcCart.Merge(inputCart);
+
+            //Assert
+            Assert.AreEqual(2, srcCart.CartLineItems.Count);
+            Assert.AreEqual(1, srcCart.CartLineItems.Single(cli => cli.VariantId == variant1.Id).Count);
+            Assert.AreEqual(1, srcCart.CartLineItems.Single(cli => cli.VariantId == variant2.Id).Count);
+        }
+
+        [TestMethod]
+        public void MergeCartNonEmptySourceNonEmptyInputCartWhereInputCartIsSubset()
+        {
+            //Arrange
+            var srcCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            var variant1 = new Variant("TestVariant1", Guid.NewGuid(), "Test Variant 1", new Money(Currency.Dkk, 10));
+            var variant2 = new Variant("TestVariant2", Guid.NewGuid(), "Test Variant 2", new Money(Currency.Dkk, 10));
+            srcCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), srcCart.Id, variant1));
+            srcCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), srcCart.Id, variant2));
+
+            var inputCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            inputCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), inputCart.Id, variant1, 2));
+
+            //Act
+            srcCart.Merge(inputCart);
+
+            //Assert
+            Assert.AreEqual(2, srcCart.CartLineItems.Count);
+            Assert.AreEqual(3, srcCart.CartLineItems.Single(cli => cli.VariantId == variant1.Id).Count);
+            Assert.AreEqual(1, srcCart.CartLineItems.Single(cli => cli.VariantId == variant2.Id).Count);
+        }
+
+        [TestMethod]
+        public void MergeCartNonEmptySourceNonEmptyInputCartWhereSourceCartIsSubset()
+        {
+            //Arrange
+            var srcCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            var variant1 = new Variant("TestVariant1", Guid.NewGuid(), "Test Variant 1", new Money(Currency.Dkk, 10));
+            var variant2 = new Variant("TestVariant2", Guid.NewGuid(), "Test Variant 2", new Money(Currency.Dkk, 10));
+            srcCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), srcCart.Id, variant1));
+
+            var inputCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            inputCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), inputCart.Id, variant1, 2));
+            inputCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), inputCart.Id, variant2));
+
+            //Act
+            srcCart.Merge(inputCart);
+
+            //Assert
+            Assert.AreEqual(2, srcCart.CartLineItems.Count);
+            Assert.AreEqual(3, srcCart.CartLineItems.Single(cli => cli.VariantId == variant1.Id).Count);
+            Assert.AreEqual(1, srcCart.CartLineItems.Single(cli => cli.VariantId == variant2.Id).Count);
+        }
+
+        [TestMethod]
+        public void MergeCartNonEmptySourceNonEmptyInputCartWhereBothHaveExclusiveVariants()
+        {
+            //Arrange
+            var srcCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            var variant1 = new Variant("TestVariant1", Guid.NewGuid(), "Test Variant 1", new Money(Currency.Dkk, 10));
+            var variant2 = new Variant("TestVariant2", Guid.NewGuid(), "Test Variant 2", new Money(Currency.Dkk, 10));
+            var variant3 = new Variant("TestVariant3", Guid.NewGuid(), "Test Variant 3", new Money(Currency.Dkk, 10));
+            srcCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), srcCart.Id, variant1));
+            srcCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), srcCart.Id, variant3));
+
+            var inputCart = new Cart(Guid.NewGuid(), Guid.NewGuid());
+            inputCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), inputCart.Id, variant1, 2));
+            inputCart.CartLineItems.Add(new CartLineItem(Guid.NewGuid(), inputCart.Id, variant2));
+
+            //Act
+            srcCart.Merge(inputCart);
+
+            //Assert
+            Assert.AreEqual(3, srcCart.CartLineItems.Count);
+            Assert.AreEqual(3, srcCart.CartLineItems.Single(cli => cli.VariantId == variant1.Id).Count);
+            Assert.AreEqual(1, srcCart.CartLineItems.Single(cli => cli.VariantId == variant2.Id).Count);
+            Assert.AreEqual(1, srcCart.CartLineItems.Single(cli => cli.VariantId == variant3.Id).Count);
+        }
+
+        #endregion
     }
 }

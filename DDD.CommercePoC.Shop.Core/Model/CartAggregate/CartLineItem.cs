@@ -8,10 +8,14 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
 {
     public class CartLineItem : Entity<Guid>
     {
-        public CartLineItem(Guid id, Guid cartId, Variant variant, int count = 1) : base(id)
+        public CartLineItem(Guid id, Guid cartId, Variant variant, int count = 1) : this(id, cartId, variant.Id, count)
+        {
+        }
+
+        public CartLineItem(Guid id, Guid cartId, string variantId, int count = 1) : base(id)
         {
             CartId = cartId;
-            VariantId = variant.Id;
+            VariantId = variantId;
             Count = count;
             TrackingState = TrackingState.Added;
         }
@@ -33,10 +37,7 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
         
         [Required]
         public int Count { get; private set; }
-
-        //[Required] 
-       // public Money LineTotal { get; private set; }
-       
+        
         public void IncreaseCount(int increment = 1)
         {
             Count += increment;

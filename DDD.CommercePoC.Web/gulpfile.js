@@ -25,13 +25,14 @@ gulp.task("scriptsNStyles", function () {
         .pipe(gulp.dest("./libs"));
 });
 
-var tsProject = ts.createProject('TsScripts/tsconfig.json', {
+var tsProject = ts.createProject('tsScripts/tsconfig.json', {
     typescript: require('typescript')
 });
 gulp.task('ts', function () {
     //var tsResult = tsProject.src()
     var tsResult = gulp.src([
-        "TsScripts/*.ts"
+        "tsScripts/*.ts",
+        "tsScripts/**/*.ts"
     ])
         .pipe(tsProject(), undefined, ts.reporter.fullReporter());
     return tsResult.js.pipe(gulp.dest('./Scripts'));
@@ -40,7 +41,7 @@ gulp.task('ts', function () {
 gulp.task('watch', ['watch.ts']);
 
 gulp.task('watch.ts', ['ts'], function () {
-    return gulp.watch('TsScripts/*.ts', ['ts']);
+    return gulp.watch('tsScripts/*.ts', ['ts']);
 });
 
 gulp.task('default', ['scriptsNStyles', 'watch']);

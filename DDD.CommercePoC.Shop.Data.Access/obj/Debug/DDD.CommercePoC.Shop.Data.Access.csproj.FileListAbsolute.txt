@@ -48,3 +48,4 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\bin\Debug
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\obj\Debug\DDD.CommercePoC.Shop.Data.Access.csprojResolveAssemblyReference.cache
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\obj\Debug\DDD.CommercePoC.Shop.Data.Access.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\obj\Debug\DDD.CommercePoC.Shop.Data.Access.pdb
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\bin\Debug\System.ValueTuple.dll

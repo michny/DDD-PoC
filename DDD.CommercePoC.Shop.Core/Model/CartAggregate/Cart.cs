@@ -57,24 +57,29 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
 
         #region Methods
 
-        public Variant AddVariant(Variant variant)
+        public Variant AddVariant(Variant variant, int count = 1)
+        {
+            AddVariant(variant.Id);
+            return variant;
+        }
+
+        //By not making it public I make it easier to ensure that no cart line items are created with non-existing variants before a foreign key error is thrown
+        private void AddVariant(string variantId, int count = 1)
         {
             Guid cartLineItemId;
-            var existingCartLineItem = CartLineItems.SingleOrDefault(item => item.VariantId == variant.Id);
+            var existingCartLineItem = CartLineItems.SingleOrDefault(item => item.VariantId == variantId);
             if (existingCartLineItem != null)
             {
                 cartLineItemId = existingCartLineItem.Id;
-                existingCartLineItem.IncreaseCount();
-                DomainEvents.Raise(new CartLineItemUpdatedEvent(Id, cartLineItemId, variant.Id, existingCartLineItem.Count));
+                existingCartLineItem.IncreaseCount(count);
+                DomainEvents.Raise(new CartLineItemUpdatedEvent(Id, cartLineItemId, variantId, existingCartLineItem.Count));
             }
             else
             {
                 cartLineItemId = Guid.NewGuid();
-                CartLineItems.Add(new CartLineItem(cartLineItemId, Id, variant));
-                DomainEvents.Raise(new CartLineItemAddedEvent(Id, cartLineItemId, variant.Id));
+                CartLineItems.Add(new CartLineItem(cartLineItemId, Id, variantId));
+                DomainEvents.Raise(new CartLineItemAddedEvent(Id, cartLineItemId, variantId));
             }
-
-            return variant;
         }
 
         public void RemoveVariant(string variantId)
@@ -104,6 +109,11 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
             cartLineItem.TrackingState = TrackingState.Deleted;
             CartLineItems.Remove(cartLineItem);
             DomainEvents.Raise(new CartLineItemDeletedEvent(Id, cartLineItem.Id, cartLineItem.VariantId));
+        }
+
+        public void Merge(Cart otherCart)
+        {
+            otherCart.CartLineItems.ForEach(cartLineItem => AddVariant(cartLineItem.VariantId, cartLineItem.Count));
         }
 
         #endregion
