@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using DDD.CommercePoC.SharedKernel.Model;
 using DDD.CommercePoC.Shop.Core.Model.CartAggregate;
 using DDD.CommercePoC.Shop.Core.Model.ValueObjects;
@@ -14,10 +15,13 @@ namespace DDD.CommercePoC.Shop.Core.Model.OrderAggregate
             LineTotal = price;
         }
         
+        [Required]
         public string VariantId { get; private set; }
 
+        [Required]
         public int Count { get; private set; }
 
+        [Required]
         public Money LineTotal { get; private set; }
     }
 }

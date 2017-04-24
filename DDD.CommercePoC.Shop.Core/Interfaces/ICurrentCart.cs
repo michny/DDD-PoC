@@ -7,6 +7,6 @@ namespace DDD.CommercePoC.Shop.Core.Interfaces
     {
         Cart Cart { get; }
 
-        Guid Id { get; set; }
+        Guid? Id { get; set; }
     }
 }

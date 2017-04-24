@@ -49,7 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\DbConfiguration.cs" />
+    <Compile Include="Configuration\MasterDbConfiguration.cs" />
+    <Compile Include="Configuration\DbMigrationConfiguration.cs" />
     <Compile Include="MasterContext.cs" />
     <Compile Include="Migrations\201704081839470_Initial.cs" />
     <Compile Include="Migrations\201704081839470_Initial.Designer.cs">
@@ -70,6 +71,10 @@
     <Compile Include="Migrations\201704152029058_AddCreatedModifiedTimeStamps.cs" />
     <Compile Include="Migrations\201704152029058_AddCreatedModifiedTimeStamps.Designer.cs">
       <DependentUpon>201704152029058_AddCreatedModifiedTimeStamps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191911562_Orders.cs" />
+    <Compile Include="Migrations\201704191911562_Orders.Designer.cs">
+      <DependentUpon>201704191911562_Orders.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704152029058_AddCreatedModifiedTimeStamps.resx">
       <DependentUpon>201704152029058_AddCreatedModifiedTimeStamps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191911562_Orders.resx">
+      <DependentUpon>201704191911562_Orders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

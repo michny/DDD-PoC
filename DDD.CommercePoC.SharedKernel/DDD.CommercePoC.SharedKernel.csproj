@@ -60,6 +60,7 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Installers\TaskInstaller.cs" />
     <Compile Include="Interfaces\ICurrentUser.cs" />
+    <Compile Include="Interfaces\ITrackable.cs" />
     <Compile Include="Interfaces\IReadOnlyRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ITransaction.cs" />

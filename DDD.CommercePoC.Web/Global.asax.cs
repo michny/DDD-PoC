@@ -5,6 +5,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.SessionState;
 using Castle.Core.Internal;
 using Castle.Windsor;
 using DDD.CommercePoC.SharedKernel.Data.Access.Migration;
@@ -56,6 +57,19 @@ namespace DDD.CommercePoC.Web
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
             RunTasksAfterAuth();
+        }
+
+        protected void Application_PostAuthorizeRequest()
+        {
+            if (IsWebApiRequest())
+            {
+                HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+            }
+        }
+
+        private bool IsWebApiRequest()
+        {
+            return HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath?.StartsWith(WebApiConfig.UrlPrefixRelative) == true;
         }
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)

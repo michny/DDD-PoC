@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using System.Web.Mvc;
 using Castle.Core;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
@@ -23,6 +25,9 @@ namespace DDD.CommercePoC.Web
             
             var controllerFactory = new WindsorControllerFactory(container);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+
+            //Setting up use of custom Castle Windsor HttpController factory
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new WindsorHttpControllerActivator(container));
 
             return container;
         }

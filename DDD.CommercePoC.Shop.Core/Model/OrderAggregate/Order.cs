@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using DDD.CommercePoC.SharedKernel.Model;
@@ -25,12 +26,15 @@ namespace DDD.CommercePoC.Shop.Core.Model.OrderAggregate
         #endregion
 
         #region Properties
+        [Required]
         public Guid CustomerId { get; private set; }
 
+        [Required]
         public Money Total { get; internal set; }
 
         public List<OrderLineItem> OrderLineItems { get; private set; } = new List<OrderLineItem>();
 
+        [Required]
         public string StateName { get; private set; }
 
         [NotMapped]

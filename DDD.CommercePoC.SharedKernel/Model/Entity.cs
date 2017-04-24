@@ -1,15 +1,21 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using DDD.CommercePoC.SharedKernel.Enums;
+using DDD.CommercePoC.SharedKernel.Interfaces;
 using DDD.CommercePoC.SharedKernel.Model.Interfaces;
 
 namespace DDD.CommercePoC.SharedKernel.Model
 {
-    public abstract class Entity<TId> : IEquatable<Entity<TId>>, IEntity
+    public abstract class Entity<TId> : IEquatable<Entity<TId>>, IEntity, ITrackable
     {
         public TId Id { get; protected set; }
 
         public DateTime Created { get; protected set; }
 
         public DateTime LastModified { get; protected set; }
+
+        [NotMapped]
+        public TrackingState TrackingState { get; set; }
 
         protected Entity(TId id)
         {
@@ -19,8 +25,6 @@ namespace DDD.CommercePoC.SharedKernel.Model
             }
 
             Id = id;
-            Created = DateTime.UtcNow;
-            LastModified = DateTime.UtcNow;
         }
 
         // EF requires an empty constructor

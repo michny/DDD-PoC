@@ -85,7 +85,7 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
             existingCartLineItem.DecreaseCount();
             if (existingCartLineItem.Count == 0)
             {
-                existingCartLineItem.State = TrackingState.Deleted;
+                existingCartLineItem.TrackingState = TrackingState.Deleted;
                 CartLineItems.Remove(existingCartLineItem);
                 DomainEvents.Raise(new CartLineItemDeletedEvent(Id, existingCartLineItem.Id, variantId));
             }

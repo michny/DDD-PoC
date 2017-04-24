@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using DDD.CommercePoC.SharedKernel.Enums;
 using DDD.CommercePoC.SharedKernel.Model;
 using DDD.CommercePoC.Shop.Core.Model.ProductAggregate;
@@ -14,7 +13,7 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
             CartId = cartId;
             VariantId = variant.Id;
             Count = count;
-            State = TrackingState.Added;
+            TrackingState = TrackingState.Added;
         }
 
         // ReSharper disable once UnusedMember.Local : Required by EF
@@ -37,20 +36,17 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
 
         //[Required] 
        // public Money LineTotal { get; private set; }
-
-        [NotMapped]
-        public TrackingState State { get; set; }
-
+       
         public void IncreaseCount(int increment = 1)
         {
             Count += increment;
-            State = TrackingState.Modified;
+            TrackingState = TrackingState.Modified;
         }
 
         public void DecreaseCount(int decrement = 1)
         {
             Count -= decrement;
-            State = TrackingState.Modified;
+            TrackingState = TrackingState.Modified;
         }
     }
 }

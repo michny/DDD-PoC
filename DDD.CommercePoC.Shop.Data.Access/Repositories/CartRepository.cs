@@ -21,18 +21,18 @@ namespace DDD.CommercePoC.Shop.Data.Access.Repositories
         public void Update(Cart cart)
         {
             _context.Entry(cart).State = EntityState.Modified;
-
+            
             foreach (var orderItem in cart.CartLineItems)
             {
-                if (orderItem.State == TrackingState.Added)
+                if (orderItem.TrackingState == TrackingState.Added)
                 {
                     _context.Entry(orderItem).State = EntityState.Added;
                 }
-                if (orderItem.State == TrackingState.Modified)
+                if (orderItem.TrackingState == TrackingState.Modified)
                 {
                     _context.Entry(orderItem).State = EntityState.Modified;
                 }
-                if (orderItem.State == TrackingState.Deleted)
+                if (orderItem.TrackingState == TrackingState.Deleted)
                 {
                     _context.Entry(orderItem).State = EntityState.Deleted;
                 }
@@ -47,7 +47,7 @@ namespace DDD.CommercePoC.Shop.Data.Access.Repositories
 
         public Cart GetCartForCustomer(Guid customerId)
         {
-            return Single(cart => cart.CustomerId == customerId);
+            return Single(cart => cart.CustomerId == customerId, includes: cart => cart.CartLineItems);
         }
     }
 }

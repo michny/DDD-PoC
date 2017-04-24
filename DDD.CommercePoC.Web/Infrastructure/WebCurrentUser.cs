@@ -7,9 +7,9 @@ namespace DDD.CommercePoC.Web.Infrastructure
 {
     public class WebCurrentUser : ICurrentUser
     {
-        private readonly HttpContextWrapper _context;
+        private readonly HttpContextBase _context;
 
-        public WebCurrentUser(HttpContextWrapper context)
+        public WebCurrentUser(HttpContextBase context)
         {
             _context = context;
         }

@@ -11,20 +11,27 @@ namespace DDD.CommercePoC.Tests.Controllers
     [TestClass]
     public class HomeControllerTest
     {
+        private Mock<ICurrentCart> _currentCartMock;
+        private Mock<ICurrentUser> _currentUserMock;
+        private Mock<HttpContextBase> _currentContextMock;
+        private HomeController _controller;
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            _currentCartMock = new Mock<ICurrentCart>();
+            _currentUserMock = new Mock<ICurrentUser>();
+            _currentContextMock = new Mock<HttpContextBase>();
+            _controller = new HomeController(_currentCartMock.Object, _currentUserMock.Object, _currentContextMock.Object);
+        }
+
         [TestMethod]
         public void Index()
         {
             // Arrange
-            var cartRepo = new Mock<ICartRepository>();
-            var proudctRepo = new Mock<IProductRepository>();
-            var uow = new Mock<IUnitOfWork>();
-            var currentCart = new Mock<ICurrentCart>();
-            var currentUser = new Mock<ICurrentUser>();
-            var currentContext = new Mock<HttpContext>();
-            HomeController controller = new HomeController(cartRepo.Object, proudctRepo.Object, uow.Object, currentCart.Object, currentUser.Object, new HttpContextWrapper(currentContext.Object));
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = _controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
@@ -34,16 +41,9 @@ namespace DDD.CommercePoC.Tests.Controllers
         public void About()
         {
             // Arrange
-            var cartRepo = new Mock<ICartRepository>();
-            var proudctRepo = new Mock<IProductRepository>();
-            var uow = new Mock<IUnitOfWork>();
-            var currentCart = new Mock<ICurrentCart>();
-            var currentUser = new Mock<ICurrentUser>();
-            var currentContext = new Mock<HttpContext>();
-            HomeController controller = new HomeController(cartRepo.Object, proudctRepo.Object, uow.Object, currentCart.Object, currentUser.Object, new HttpContextWrapper(currentContext.Object));
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = _controller.About() as ViewResult;
             
             // Assert
             if (result == null)
@@ -55,16 +55,9 @@ namespace DDD.CommercePoC.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            var cartRepo = new Mock<ICartRepository>();
-            var proudctRepo = new Mock<IProductRepository>();
-            var uow = new Mock<IUnitOfWork>();
-            var currentCart = new Mock<ICurrentCart>();
-            var currentUser = new Mock<ICurrentUser>();
-            var currentContext = new Mock<HttpContext>();
-            HomeController controller = new HomeController(cartRepo.Object, proudctRepo.Object, uow.Object, currentCart.Object, currentUser.Object, new HttpContextWrapper(currentContext.Object));
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = _controller.Contact() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

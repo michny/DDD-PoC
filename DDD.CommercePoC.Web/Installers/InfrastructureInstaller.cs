@@ -12,11 +12,25 @@ namespace DDD.CommercePoC.Web.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<HttpSessionStateWrapper>()
-                .UsingFactoryMethod(() => HttpContext.Current.Session != null ? new HttpSessionStateWrapper(HttpContext.Current.Session) : null));
+            container.Register(Component.For<HttpSessionStateBase>()
+                .UsingFactoryMethod<HttpSessionStateBase>(
+                    () =>
+                    {
+                        if (HttpContext.Current.Session != null)
+                            return new HttpSessionStateWrapper(HttpContext.Current.Session);
+                        return new EmptyHttpSessionState();
+                    }
+                ));
 
-            container.Register(Component.For<HttpContextWrapper>()
-                .UsingFactoryMethod(() => HttpContext.Current != null ? new HttpContextWrapper(HttpContext.Current) : null));
+            container.Register(Component.For<HttpContextBase>()
+                .UsingFactoryMethod<HttpContextBase>(
+                    () =>
+                    {
+                        if (HttpContext.Current != null)
+                            return new HttpContextWrapper(HttpContext.Current);
+                        return new EmptyHttpContext();
+                    }
+                ));
 
             container.Register(Component.For<ICurrentUser>().ImplementedBy<WebCurrentUser>().LifestylePerWebRequest());
 
