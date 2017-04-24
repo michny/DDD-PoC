@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Castle.Core.Internal;
 using DDD.CommercePoC.SharedKernel.Enums;
 using DDD.CommercePoC.SharedKernel.Model;
 using DDD.CommercePoC.SharedKernel.Model.Interfaces;
@@ -85,14 +86,24 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
             existingCartLineItem.DecreaseCount();
             if (existingCartLineItem.Count == 0)
             {
-                existingCartLineItem.TrackingState = TrackingState.Deleted;
-                CartLineItems.Remove(existingCartLineItem);
-                DomainEvents.Raise(new CartLineItemDeletedEvent(Id, existingCartLineItem.Id, variantId));
+                DeleteCartLineItem(existingCartLineItem);
             }
             else
             {
                 DomainEvents.Raise(new CartLineItemUpdatedEvent(Id, existingCartLineItem.Id, variantId, existingCartLineItem.Count));
             }
+        }
+
+        public void Clear()
+        {
+            CartLineItems.ForEach(DeleteCartLineItem);
+        }
+
+        private void DeleteCartLineItem(CartLineItem cartLineItem)
+        {
+            cartLineItem.TrackingState = TrackingState.Deleted;
+            CartLineItems.Remove(cartLineItem);
+            DomainEvents.Raise(new CartLineItemDeletedEvent(Id, cartLineItem.Id, cartLineItem.VariantId));
         }
 
         #endregion

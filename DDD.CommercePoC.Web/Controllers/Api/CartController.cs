@@ -67,5 +67,13 @@ namespace DDD.CommercePoC.Web.Controllers.Api
                 return _cartViewModelFactory.Create(updatedCartLineItem);
             }
         }
+
+        public void Delete()
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                _currentCart.Cart.Clear();
+            }
+        }
     }
 }
