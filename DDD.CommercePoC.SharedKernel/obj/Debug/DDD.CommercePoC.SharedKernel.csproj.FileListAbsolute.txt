@@ -25,3 +25,4 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel\obj\Debug\DDD
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel\obj\Debug\DDD.CommercePoC.SharedKernel.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel\obj\Debug\DDD.CommercePoC.SharedKernel.pdb
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel\bin\Debug\System.ValueTuple.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel\obj\Debug\DDD.CommercePoC.SharedKernel.csproj.CoreCompileInputs.cache

@@ -34,11 +34,12 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
 
         // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local : Private set required by EF for Code First migrations
         //public ICollection<OrderItem> OrderItems { get; private set; }
-        //private List<CartLineItem> _cartLineItems;
-        //public virtual ICollection<CartLineItem> CartLineItems
+        //protected List<CartLineItem> _cartLineItems { get; set; }
+
+        //public virtual IEnumerable<CartLineItem> CartLineItems
         //{
-        //    get => _cartLineItems;//.AsReadOnly();
-        //    private set => _cartLineItems = (List<CartLineItem>)value;
+        //    get => _cartLineItems;
+        //    set => _cartLineItems = (List<CartLineItem>) value;
         //}
         public virtual ICollection<CartLineItem> CartLineItems { get; set; } = new List<CartLineItem>();
 

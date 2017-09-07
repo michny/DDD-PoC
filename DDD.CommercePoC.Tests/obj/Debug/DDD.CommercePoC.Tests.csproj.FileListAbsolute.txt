@@ -248,3 +248,5 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Tests\bin\Debug\roslyn\vbc
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Tests\bin\Debug\roslyn\vbc.rsp
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Tests\bin\Debug\roslyn\VBCSCompiler.exe
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Tests\bin\Debug\System.ValueTuple.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Tests\obj\Debug\DDD.CommercePoC.Tests.csproj.CoreCompileInputs.cache

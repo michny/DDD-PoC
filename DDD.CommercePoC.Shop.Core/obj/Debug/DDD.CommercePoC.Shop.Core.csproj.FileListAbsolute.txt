@@ -51,3 +51,4 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Core\obj\Debug\DDD.Co
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Core\obj\Debug\DDD.CommercePoC.Shop.Core.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Core\obj\Debug\DDD.CommercePoC.Shop.Core.pdb
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Core\bin\Debug\System.ValueTuple.dll
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Core\obj\Debug\DDD.CommercePoC.Shop.Core.csproj.CoreCompileInputs.cache
