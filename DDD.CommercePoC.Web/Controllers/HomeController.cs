@@ -22,10 +22,11 @@ namespace DDD.CommercePoC.Web.Controllers
 
         public ActionResult Index()
         {
-            var user = _currentUser.User.GetApplicationUser(_httpContext);
+            //var user = _currentUser.User.GetApplicationUser(_httpContext);
 
-            return View().WithInfo($"CartId {_currentCart.Cart.Id}. Cart Items count: {_currentCart.Cart.CartLineItems.Count}. " +
-                                   $"Username: {user.UserName}. CustomerId: {user.CustomerId}");
+            //return View().WithInfo($"CartId {_currentCart.Cart.Id}. Cart Items count: {_currentCart.Cart.CartLineItems.Count}. " +
+            //                       $"Username: {user.UserName}. CustomerId: {user.CustomerId}");
+            return View();
         }
 
         public ActionResult About()

@@ -9,13 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var TestComponent = (function () {
     function TestComponent() {
-        this.title = 'Test component';
+        this.title = "Test component";
     }
     return TestComponent;
 }());
 TestComponent = __decorate([
     core_1.Component({
-        selector: 'ddd-test',
+        selector: "ddd-test",
         template: "    \n    <h2>Test</h2>\n    <p>Hello</p>\n  "
     })
 ], TestComponent);
