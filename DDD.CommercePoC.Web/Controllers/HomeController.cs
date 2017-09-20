@@ -29,6 +29,13 @@ namespace DDD.CommercePoC.Web.Controllers
             return View();
         }
 
+        [Route("ngroute")]
+        [Route("ngroute2")]
+        public ActionResult NgIndex()
+        {
+            return View("NgApp");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -55,3 +55,4 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.M
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.Orders.resources
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\bin\Debug\System.ValueTuple.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.csproj.CoreCompileInputs.cache
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.SharedKernel.Data.Access.Migration\obj\Debug\DDD.CommercePoC.SharedKernel.Data.Access.Migration.Configuration.ImageUrlOnVariants.resources

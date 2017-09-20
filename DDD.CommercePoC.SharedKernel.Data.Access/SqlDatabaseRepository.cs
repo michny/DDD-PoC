@@ -18,31 +18,31 @@ namespace DDD.CommercePoC.SharedKernel.Data.Access
         {
             DatabaseContext = databaseContext;
         }
-        public TAggregateRoot Add(TAggregateRoot entity)
+        public virtual TAggregateRoot Add(TAggregateRoot entity)
         {
             return CreateSet().Add(entity);
         }
 
-        public void Remove(TAggregateRoot entity)
+        public virtual void Remove(TAggregateRoot entity)
         {
             CreateSet().Remove(entity);
         }
 
-        public TAggregateRoot SingleOrDefault(Expression<Func<TAggregateRoot, bool>> predicate, params Expression<Func<TAggregateRoot, object>>[] includes)
+        public virtual TAggregateRoot SingleOrDefault(Expression<Func<TAggregateRoot, bool>> predicate, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var set = CreateIncludedSet(includes);
 
             return set.SingleOrDefault(predicate);
         }
 
-        public TProjection SingleOrDefault<TProjection>(Expression<Func<TAggregateRoot, bool>> predicate, Expression<Func<TAggregateRoot, TProjection>> projection, params Expression<Func<TAggregateRoot, object>>[] includes)
+        public virtual TProjection SingleOrDefault<TProjection>(Expression<Func<TAggregateRoot, bool>> predicate, Expression<Func<TAggregateRoot, TProjection>> projection, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var set = CreateIncludedSet(includes);
 
             return set.Where(predicate).Select(projection).SingleOrDefault();
         }
 
-        public TAggregateRoot Single(Expression<Func<TAggregateRoot, bool>> predicate, params Expression<Func<TAggregateRoot, object>>[] includes)
+        public virtual TAggregateRoot Single(Expression<Func<TAggregateRoot, bool>> predicate, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var entity = SingleOrDefault(predicate, includes);
 
@@ -52,52 +52,52 @@ namespace DDD.CommercePoC.SharedKernel.Data.Access
             return entity;
         }
 
-        public TProjection Single<TProjection>(Expression<Func<TAggregateRoot, bool>> predicate, Expression<Func<TAggregateRoot, TProjection>> projection, params Expression<Func<TAggregateRoot, object>>[] includes)
+        public virtual TProjection Single<TProjection>(Expression<Func<TAggregateRoot, bool>> predicate, Expression<Func<TAggregateRoot, TProjection>> projection, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var set = CreateIncludedSet(includes);
 
             return set.Where(predicate).Select(projection).Single();
         }
 
-        public IQueryable<TAggregateRoot> Many(Expression<Func<TAggregateRoot, bool>> predicate = null, params Expression<Func<TAggregateRoot, object>>[] includes)
+        public virtual IQueryable<TAggregateRoot> Many(Expression<Func<TAggregateRoot, bool>> predicate = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var set = CreateIncludedSet(includes);
 
             return predicate == null ? set : set.Where(predicate);
         }
 
-        public IQueryable<TProjection> Many<TProjection>(Expression<Func<TAggregateRoot, bool>> predicate, Expression<Func<TAggregateRoot, TProjection>> projection, params Expression<Func<TAggregateRoot, object>>[] includes)
+        public virtual IQueryable<TProjection> Many<TProjection>(Expression<Func<TAggregateRoot, bool>> predicate, Expression<Func<TAggregateRoot, TProjection>> projection, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var set = CreateIncludedSet(includes);
 
             return set.Where(predicate).Select(projection).AsQueryable();
         }
 
-        public bool Exists(Expression<Func<TAggregateRoot, bool>> predicate = null)
+        public virtual bool Exists(Expression<Func<TAggregateRoot, bool>> predicate = null)
         {
             var set = CreateSet();
 
             return predicate == null ? set.Any() : set.Any(predicate);
         }
 
-        public int Count(Expression<Func<TAggregateRoot, bool>> predicate = null)
+        public virtual int Count(Expression<Func<TAggregateRoot, bool>> predicate = null)
         {
             var set = CreateSet();
 
             return predicate == null ? set.Count() : set.Count(predicate);
         }
 
-        protected IDbSet<TAggregateRoot> CreateSet()
+        protected virtual IDbSet<TAggregateRoot> CreateSet()
         {
             return DatabaseContext.CreateSet<TAggregateRoot>();
         }
 
-        protected DbEntityEntry<TAggregateRoot> Entry(TAggregateRoot entity)
+        protected virtual DbEntityEntry<TAggregateRoot> Entry(TAggregateRoot entity)
         {
             return DatabaseContext.Entry(entity);
         }
 
-        protected IQueryable<TAggregateRoot> CreateIncludedSet(IEnumerable<Expression<Func<TAggregateRoot, object>>> includes)
+        protected virtual IQueryable<TAggregateRoot> CreateIncludedSet(IEnumerable<Expression<Func<TAggregateRoot, object>>> includes)
         {
             IQueryable<TAggregateRoot> set = CreateSet();
 

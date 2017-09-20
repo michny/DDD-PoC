@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 
 namespace DDD.CommercePoC.Web.Models.CartModels
 {
-    public class CartViewModelFactory
+    public class CartViewModelFactory : IViewModelFactory<Cart, CartViewModel>
     {
         private readonly IReadOnlyRepository<Variant> _variantRepository;
 
@@ -14,8 +14,8 @@ namespace DDD.CommercePoC.Web.Models.CartModels
         {
             _variantRepository = variantRepository;
         }
-
-        public CartViewModel Create([NotNull] Cart cart)
+        
+        public CartViewModel Create(Cart cart)
         {
             return new CartViewModel
             {
@@ -25,6 +25,7 @@ namespace DDD.CommercePoC.Web.Models.CartModels
             };
         }
 
+        [NotNull]
         public CartLineItemViewModel Create([NotNull] CartLineItem cartLineItem)
         {
             var variant = _variantRepository.Single(v => v.Id == cartLineItem.VariantId);

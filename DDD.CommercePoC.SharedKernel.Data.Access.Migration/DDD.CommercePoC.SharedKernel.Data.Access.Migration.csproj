@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201704191911562_Orders.Designer.cs">
       <DependentUpon>201704191911562_Orders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709192030476_ImageUrlOnVariants.cs" />
+    <Compile Include="Migrations\201709192030476_ImageUrlOnVariants.Designer.cs">
+      <DependentUpon>201709192030476_ImageUrlOnVariants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704191911562_Orders.resx">
       <DependentUpon>201704191911562_Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709192030476_ImageUrlOnVariants.resx">
+      <DependentUpon>201709192030476_ImageUrlOnVariants.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

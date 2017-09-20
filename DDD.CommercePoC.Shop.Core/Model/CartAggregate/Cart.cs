@@ -102,7 +102,8 @@ namespace DDD.CommercePoC.Shop.Core.Model.CartAggregate
 
         public void Clear()
         {
-            CartLineItems.ForEach(DeleteCartLineItem);
+            var elementsToDelete = CartLineItems.Select(e => e).ToList();
+            elementsToDelete.ForEach(DeleteCartLineItem);
         }
 
         private void DeleteCartLineItem(CartLineItem cartLineItem)

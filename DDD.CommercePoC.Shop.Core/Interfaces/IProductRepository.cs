@@ -10,5 +10,7 @@ namespace DDD.CommercePoC.Shop.Core.Interfaces
     public interface IProductRepository : IRepository<Product>
     {
         IQueryable<Product> ManyWithVariants([CanBeNull] Expression<Func<Product, bool>> predicate = null);
+
+        Product SingleWithVariants(Expression<Func<Product, bool>> predicate);
     }
 }

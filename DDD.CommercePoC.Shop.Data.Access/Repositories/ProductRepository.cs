@@ -16,7 +16,22 @@ namespace DDD.CommercePoC.Shop.Data.Access.Repositories
 
         public IQueryable<Product> ManyWithVariants(Expression<Func<Product, bool>> predicate = null)
         {
-            return Many(predicate, includes: product => product.Variants);
+            var products = Many(predicate, includes: product => product.Variants);
+            //foreach (var variant in products.SelectMany(p => p.Variants))
+            //{
+            //    DatabaseContext.Entry(variant).Collection(p => p.ImageUrls).Load();
+            //}
+            return products;
+        }
+
+        public Product SingleWithVariants(Expression<Func<Product, bool>> predicate)
+        {
+            var product = Single(predicate, includes: p => p.Variants);
+            //foreach (var variant in product.Variants)
+            //{
+            //    DatabaseContext.Entry(variant).Collection(p => p.ImageUrls).Load();
+            //}
+            return product;
         }
     }
 }

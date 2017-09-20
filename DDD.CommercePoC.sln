@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.CommercePoC.Tests", "DDD.CommercePoC.Tests\DDD.CommercePoC.Tests.csproj", "{119E060A-41ED-47AC-87C1-5C7F00E1BE7C}"
 EndProject
@@ -34,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.CommercePoC.SharedKernel.Data.Access.Migration", "DDD.CommercePoC.SharedKernel.Data.Access.Migration\DDD.CommercePoC.SharedKernel.Data.Access.Migration.csproj", "{38A010E5-D64C-44CE-8CDF-71D07099B534}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.CommercePoC.Shop.Tests", "DDD.CommercePoC.Shop.Tests\DDD.CommercePoC.Shop.Tests.csproj", "{E1FB09BD-B084-48CE-B166-308FF8DB8370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.CommercePoC.Web.Angular", "DDD.CommercePoC.Web.Angular\DDD.CommercePoC.Web.Angular.csproj", "{DEA1F260-4AF6-4333-9BFD-7529E2F096FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{E1FB09BD-B084-48CE-B166-308FF8DB8370}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1FB09BD-B084-48CE-B166-308FF8DB8370}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1FB09BD-B084-48CE-B166-308FF8DB8370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA1F260-4AF6-4333-9BFD-7529E2F096FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA1F260-4AF6-4333-9BFD-7529E2F096FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA1F260-4AF6-4333-9BFD-7529E2F096FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA1F260-4AF6-4333-9BFD-7529E2F096FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +96,9 @@ Global
 		{DFA20E67-D4C1-4CA2-BDE6-BD16CB13A200} = {F2E4C79A-AE57-4FEA-B455-6A3C74132D75}
 		{38A010E5-D64C-44CE-8CDF-71D07099B534} = {94A0390D-DF21-474F-ABDC-F8A55277AD84}
 		{E1FB09BD-B084-48CE-B166-308FF8DB8370} = {A3090977-6184-41E5-82A2-1DAC994D09D2}
+		{DEA1F260-4AF6-4333-9BFD-7529E2F096FF} = {A8DB2329-46EC-4C2B-B93C-C25FD2070AF8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06C052E2-6F3A-452E-B97A-423C93BFF94B}
 	EndGlobalSection
 EndGlobal

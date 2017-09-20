@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace DDD.CommercePoC.Web
 {
@@ -19,6 +20,11 @@ namespace DDD.CommercePoC.Web
                 routeTemplate: UrlPrefix + "/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //Setting camelCasing on JSON properties
+            HttpConfiguration globalConfig = GlobalConfiguration.Configuration;
+            globalConfig.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            globalConfig.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
         }
     }
 }

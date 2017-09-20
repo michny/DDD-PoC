@@ -68,11 +68,13 @@ namespace DDD.CommercePoC.Web.Controllers.Api
             }
         }
 
-        public void Delete()
+        public CartViewModel Delete()
         {
             using (_unitOfWork.BeginTransaction())
             {
                 _currentCart.Cart.Clear();
+
+                return _cartViewModelFactory.Create(_currentCart.Cart);
             }
         }
     }

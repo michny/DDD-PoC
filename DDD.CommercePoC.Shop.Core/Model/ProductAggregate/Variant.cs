@@ -28,5 +28,7 @@ namespace DDD.CommercePoC.Shop.Core.Model.ProductAggregate
 
         // ReSharper disable once UnusedAutoPropertyAccessor.Local : Private set required by EF for Code First migrations
         protected virtual Product Product { get; private set; }
+
+        public virtual string ImageUrl { get; set; }
     }
 }
