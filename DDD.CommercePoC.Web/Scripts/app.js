@@ -17,7 +17,7 @@ var AppComponent = (function () {
 }());
 AppComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
+        selector: 'my-app2',
         template: "    \n    <h2>My favorite skill is: {{myskills}}</h2>\n    <p>Skill:</p>\n    <ul>\n      <li *ngFor=\"let skl of skills\">\n        {{ skl }}\n      </li>\n    </ul>\n  "
     })
 ], AppComponent);

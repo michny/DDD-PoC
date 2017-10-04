@@ -1,3 +1,38 @@
-<p>
-  product-details works!
-</p>
+<div *ngIf="product">
+  <div class="row">
+    <h1>{{product.name}}</h1>
+    <p class="product-details-id-header">{{product.id}}</p>
+  </div>
+  <br/>
+  <div class="row">
+    <div>
+      <select *ngIf="product.variants && product.variants.length" [(ngModel)]="selectedVariant">
+        <option *ngFor="let variant of product.variants" [ngValue]="variant">{{variant.name}}</option>
+      </select>
+      <span>Price: {{selectedVariant.priceFormatted}}</span>
+      <button class="btn btn-warning glyphicon glyphicon-shopping-cart btn-add-to-cart" (click)="addToCart()">Add to cart</button>
+    </div>
+
+    <div class="table-responsive col-md-4">
+      <table class="table table-hover">
+        <tbody>
+        <tr>
+          <td>Name</td>
+          <td>{{product.name}}</td>
+        </tr>
+        <tr>
+          <td>Id</td>
+          <td>{{product.id}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+  
+    </div>
+  </div>
+  <div class="row">
+    <a class="btn btn-default" [routerLink]="['/products']">Back to products</a>
+  </div>
+</div>
+

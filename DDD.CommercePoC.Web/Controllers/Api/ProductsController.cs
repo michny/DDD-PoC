@@ -23,7 +23,8 @@ namespace DDD.CommercePoC.Web.Controllers.Api
         public IHttpActionResult Get()
         {
             var products = _productRepository.ManyWithVariants();
-            return Ok(products.AsEnumerable().Select(_viewModelFactory.Create).ToList());
+            var productsList = products.AsEnumerable().Where(p => p.Variants != null && p.Variants.Any()).Select(_viewModelFactory.Create).ToList();
+            return Ok(productsList);
         }
 
         // GET: api/Products/5

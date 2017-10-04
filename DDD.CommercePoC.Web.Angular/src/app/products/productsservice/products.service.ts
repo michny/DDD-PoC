@@ -7,7 +7,7 @@ import 'rxjs/add/operator/do';
 
 @Injectable()
 export class ProductsService {
-  private readonly _productUrl: string = 'api/products';
+  private readonly _productUrl: string = '/api/products';
 
   constructor(private readonly _httpClient: HttpClient) { }
 

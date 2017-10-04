@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 @Component({
-    selector: 'my-app',
+    selector: 'my-app2',
     template: `    
     <h2>My favorite skill is: {{myskills}}</h2>
     <p>Skill:</p>

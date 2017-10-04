@@ -1,7 +1,7 @@
-<h1>product-list works!</h1>
+<h1>All products</h1>
 
 <div class="table-responsive">
-  <table class="table" *ngIf="allProducts && allProducts.length">
+  <table class="table table-striped" *ngIf="allProducts && allProducts.length">
     <thead>
     <tr>
       <th>Id</th>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let product of filteredProducts">
-      <td>{{product.id}}</td>
+      <td><a [routerLink]="['/products/', product.id]">{{product.id}}</a></td>
       <td>{{product.name}}</td>
       <td>{{product.variants[0].priceFormatted}}</td>
     </tr>

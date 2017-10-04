@@ -75,6 +75,10 @@
     <Content Include="package.json" />
     <None Include="packages.config" />
     <Content Include="README.md" />
+    <Content Include="src\app\cart\cart\cart.component.css" />
+    <Content Include="src\app\cart\cart\cart.component.html" />
+    <Content Include="src\app\index\index.component.css" />
+    <Content Include="src\app\index\index.component.html" />
     <Content Include="src\app\products\product-details\product-details.component.css" />
     <Content Include="src\app\products\product-details\product-details.component.html" />
     <Content Include="src\app\products\product-list\product-list.component.css" />
@@ -107,15 +111,30 @@
   <ItemGroup>
     <TypeScriptCompile Include="e2e\app.e2e-spec.ts" />
     <TypeScriptCompile Include="e2e\app.po.ts" />
+    <TypeScriptCompile Include="src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\cart\cart-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\cart\cart.module.spec.ts" />
+    <TypeScriptCompile Include="src\app\cart\cart.module.ts" />
+    <TypeScriptCompile Include="src\app\cart\cart-service\cart.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\cart\cart-service\cart.service.ts" />
+    <TypeScriptCompile Include="src\app\cart\cart\cart.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\cart\cart\cart.component.ts" />
+    <TypeScriptCompile Include="src\app\index\index.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\index\index.component.ts" />
+    <TypeScriptCompile Include="src\app\cart\ICartLineItem.ts" />
     <TypeScriptCompile Include="src\app\products\IProduct.ts" />
     <TypeScriptCompile Include="src\app\products\IVariant.ts" />
     <TypeScriptCompile Include="src\app\products\product-details\product-details.component.spec.ts" />
     <TypeScriptCompile Include="src\app\products\product-details\product-details.component.ts" />
+    <TypeScriptCompile Include="src\app\products\product-guard\product-guard.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\products\product-guard\product-guard.service.ts" />
     <TypeScriptCompile Include="src\app\products\product-list\product-list.component.spec.ts" />
     <TypeScriptCompile Include="src\app\products\product-list\product-list.component.ts" />
+    <TypeScriptCompile Include="src\app\products\Product.ts" />
+    <TypeScriptCompile Include="src\app\products\products-routing.module.ts" />
     <TypeScriptCompile Include="src\app\products\products.module.spec.ts" />
     <TypeScriptCompile Include="src\app\products\products.module.ts" />
     <TypeScriptCompile Include="src\app\products\productsservice\products.service.spec.ts" />
@@ -129,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\app\products\cart\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
