@@ -34,7 +34,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(): void {
-    this._cartService.addToCart(this.selectedVariant)
+    this._cartService.addToCart(this.selectedVariant.id)
       .subscribe(data => {
         console.log(`Received cart lineitem ${JSON.stringify(data)} from cartService in product-details.`);
       });

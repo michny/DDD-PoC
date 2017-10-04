@@ -122,6 +122,7 @@
     <TypeScriptCompile Include="src\app\cart\cart-service\cart.service.ts" />
     <TypeScriptCompile Include="src\app\cart\cart\cart.component.spec.ts" />
     <TypeScriptCompile Include="src\app\cart\cart\cart.component.ts" />
+    <TypeScriptCompile Include="src\app\cart\ICart.ts" />
     <TypeScriptCompile Include="src\app\index\index.component.spec.ts" />
     <TypeScriptCompile Include="src\app\index\index.component.ts" />
     <TypeScriptCompile Include="src\app\cart\ICartLineItem.ts" />

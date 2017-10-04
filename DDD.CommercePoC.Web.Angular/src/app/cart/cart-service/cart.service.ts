@@ -5,6 +5,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import { ICartLineItem } from "../ICartLineItem";
+import { ICart } from "../ICart";
 
 @Injectable()
 export class CartService {
@@ -13,17 +14,19 @@ export class CartService {
 
   constructor(private readonly _httpClient: HttpClient) { }
 
-  addToCartById(variantId: string): Observable<ICartLineItem> {
+  addToCart(variantId: string): Observable<ICartLineItem> {
     console.log(`Adding variant with id ${variantId} to cart...`);
     return this._httpClient.post(this._url + '/' + variantId, {}, { })
       .do(data => console.log(`Result from service: ${JSON.stringify(data)}`))
       .catch(this.handleError);
   };
 
-  addToCart(variant: IVariant): Observable<ICartLineItem> {
-    console.log(`Adding variant ${JSON.stringify(variant)} to cart...`);
-    return this.addToCartById(variant.id);
-  };
+  getCart(): Observable<ICart> {
+    console.log('Getting current cart');
+    return this._httpClient.get(this._url)
+      .do(data => console.log(`Received cart ${JSON.stringify(data)}`))
+      .catch(this.handleError);
+  }
 
   private handleError(err: HttpErrorResponse) {
     //TODO Perhaps log to a logging service or something

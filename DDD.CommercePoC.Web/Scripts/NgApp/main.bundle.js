@@ -172,7 +172,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
 var router_1 = __webpack_require__("../../../router/@angular/router.es5.js");
-var routes = [];
+var cart_component_1 = __webpack_require__("../../../../../src/app/cart/cart/cart.component.ts");
+var routes = [
+    { path: 'cart', component: cart_component_1.CartComponent }
+];
 var CartRoutingModule = (function () {
     function CartRoutingModule() {
     }
@@ -215,18 +218,19 @@ var CartService = (function () {
         this._httpClient = _httpClient;
         this._url = '/api/cart';
     }
-    CartService.prototype.addToCartById = function (variantId) {
+    CartService.prototype.addToCart = function (variantId) {
         console.log("Adding variant with id " + variantId + " to cart...");
         return this._httpClient.post(this._url + '/' + variantId, {}, {})
             .do(function (data) { return console.log("Result from service: " + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     ;
-    CartService.prototype.addToCart = function (variant) {
-        console.log("Adding variant " + JSON.stringify(variant) + " to cart...");
-        return this.addToCartById(variant.id);
+    CartService.prototype.getCart = function () {
+        console.log('Getting current cart');
+        return this._httpClient.get(this._url)
+            .do(function (data) { return console.log("Received cart " + JSON.stringify(data)); })
+            .catch(this.handleError);
     };
-    ;
     CartService.prototype.handleError = function (err) {
         //TODO Perhaps log to a logging service or something
         console.log(err.message);
@@ -303,7 +307,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/cart/cart/cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  cart works!\n</p>\n"
+module.exports = "<div>\r\n  <h2>Your current shopping cart!</h2>\r\n\r\n  <div class=\"table-responsive\">\r\n    <table class=\"table table-striped\" *ngIf=\"cart && cart.cartLineItems && cart.cartLineItems.length > 0\">\r\n      <thead>\r\n      <tr>\r\n        <th>Variant</th>\r\n        <th>Quantity</th>\r\n        <th>Price</th>\r\n      </tr>\r\n      </thead>\r\n      <tbody>\r\n      <tr *ngFor=\"let cartLineItem of cart.cartLineItems\">\r\n        <td>{{cartLineItem.variantName}}</td>\r\n        <td>{{cartLineItem.count}}</td>\r\n        <td></td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n    <p *ngIf=\"!cart || !cart.cartLineItems || cart.cartLineItems.length === 0\">\r\n      You're shopping cart is empty! Go <a [routerLink]=\"['/products']\">here</a> to find some products!\r\n    </p>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -323,10 +327,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var Cartservice = __webpack_require__("../../../../../src/app/cart/cart-service/cart.service.ts");
+var CartService = Cartservice.CartService;
 var CartComponent = (function () {
-    function CartComponent() {
+    function CartComponent(_cartService) {
+        this._cartService = _cartService;
     }
     CartComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._cartService.getCart()
+            .subscribe(function (data) { return _this.cart = data; });
     };
     return CartComponent;
 }());
@@ -336,9 +346,10 @@ CartComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/cart/cart/cart.component.html"),
         styles: [__webpack_require__("../../../../../src/app/cart/cart/cart.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof CartService !== "undefined" && CartService) === "function" && _a || Object])
 ], CartComponent);
 exports.CartComponent = CartComponent;
+var _a;
 //# sourceMappingURL=cart.component.js.map
 
 /***/ }),
@@ -467,7 +478,7 @@ var ProductDetailsComponent = (function () {
         }, function (error) { return _this.errorMessage = error; });
     };
     ProductDetailsComponent.prototype.addToCart = function () {
-        this._cartService.addToCart(this.selectedVariant)
+        this._cartService.addToCart(this.selectedVariant.id)
             .subscribe(function (data) {
             console.log("Received cart lineitem " + JSON.stringify(data) + " from cartService in product-details.");
         });

@@ -1,3 +1,26 @@
-<p>
-  cart works!
-</p>
+<div>
+  <h2>Your current shopping cart!</h2>
+
+  <div class="table-responsive">
+    <table class="table table-striped" *ngIf="cart && cart.cartLineItems && cart.cartLineItems.length > 0">
+      <thead>
+      <tr>
+        <th>Variant</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cartLineItem of cart.cartLineItems">
+        <td>{{cartLineItem.variantName}}</td>
+        <td>{{cartLineItem.count}}</td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p *ngIf="!cart || !cart.cartLineItems || cart.cartLineItems.length === 0">
+      You're shopping cart is empty! Go <a [routerLink]="['/products']">here</a> to find some products!
+    </p>
+  </div>
+</div>
