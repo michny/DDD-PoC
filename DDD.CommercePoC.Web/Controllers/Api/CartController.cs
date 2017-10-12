@@ -1,8 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DDD.CommercePoC.SharedKernel.Interfaces;
 using DDD.CommercePoC.Shop.Core.Interfaces;
 using DDD.CommercePoC.Shop.Core.Model.ProductAggregate;
+using DDD.CommercePoC.Shop.Core.Model.ValueObjects;
 using DDD.CommercePoC.Web.Models.CartModels;
+using WebGrease.Css.Extensions;
 
 namespace DDD.CommercePoC.Web.Controllers.Api
 {
@@ -13,14 +16,16 @@ namespace DDD.CommercePoC.Web.Controllers.Api
         private readonly IReadOnlyRepository<Variant> _variantRepository;
         private readonly CartViewModelFactory _cartViewModelFactory;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IPriceService _priceService;
 
         public CartController(ICurrentCart currentCart, IReadOnlyRepository<Variant> variantRepository, CartViewModelFactory cartViewModelFactory, 
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork, IPriceService priceService)
         {
             _currentCart = currentCart;
             _variantRepository = variantRepository;
             _cartViewModelFactory = cartViewModelFactory;
             _unitOfWork = unitOfWork;
+            _priceService = priceService;
         }
         
         /// <summary>
@@ -46,7 +51,23 @@ namespace DDD.CommercePoC.Web.Controllers.Api
         /// <returns></returns>
         public CartViewModel Get()
         {
-            return _cartViewModelFactory.Create(_currentCart.Cart);
+            var cart = _currentCart.Cart;
+            var cartVm = _cartViewModelFactory.Create(cart);
+
+            var cartPrice = _priceService.GetTotalCartPrice(cart);
+            cartVm.Price = cartPrice.Amount;
+            cartVm.Currency = cartPrice.Currency.ToString();
+            cartVm.PriceFormatted = cartPrice.ToString();
+
+            var cartLineItemPrices = cart.CartLineItems.ToDictionary(cli => cli.VariantId, cli => _priceService.GetCartLineItemPrice(cli));
+            foreach (var cli in cartVm.CartLineItems)
+            {
+                var price = cartLineItemPrices.Single(p => p.Key == cli.VariantId).Value;
+                cli.Price = price.Amount;
+                cli.Currency = price.Currency.ToString();
+                cli.PriceFormatted = price.ToString();
+            }
+            return cartVm;
         }
 
         /// <summary>

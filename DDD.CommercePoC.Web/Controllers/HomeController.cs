@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Mvc;
 using DDD.CommercePoC.SharedKernel.Interfaces;
 using DDD.CommercePoC.Shop.Core.Interfaces;
@@ -28,9 +30,8 @@ namespace DDD.CommercePoC.Web.Controllers
             //                       $"Username: {user.UserName}. CustomerId: {user.CustomerId}");
             return View();
         }
-
-        [Route("ngroute")]
-        [Route("ngroute2")]
+        
+        [Route("shop")]
         public ActionResult NgIndex()
         {
             return View("NgApp");

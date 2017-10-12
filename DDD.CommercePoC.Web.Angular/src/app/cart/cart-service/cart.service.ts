@@ -1,23 +1,29 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
-import { ICartLineItem } from "../ICartLineItem";
-import { ICart } from "../ICart";
+import { ICartLineItem } from '../ICartLineItem';
+import { ICart } from '../ICart';
 
 @Injectable()
 export class CartService {
 
   private readonly _url: string = '/api/cart';
 
+  @Output()
+  cartLineItemUpdated = new EventEmitter<ICartLineItem>();
+
   constructor(private readonly _httpClient: HttpClient) { }
 
   addToCart(variantId: string): Observable<ICartLineItem> {
     console.log(`Adding variant with id ${variantId} to cart...`);
     return this._httpClient.post(this._url + '/' + variantId, {}, { })
-      .do(data => console.log(`Result from service: ${JSON.stringify(data)}`))
+      .do(data => {
+        console.log(`Result from service: ${JSON.stringify(data)}`);
+        this.cartLineItemUpdated.emit(data as ICartLineItem);
+      })
       .catch(this.handleError);
   };
 

@@ -73,7 +73,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{title}}\n  </h1>\n</div>\n<div>\n  <router-outlet></router-outlet>\n  <!--<app-product-list>Loading products</app-product-list>-->\n</div>\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    {{title}}\n  </h1>\n</div>\n<div>\n  <app-cart-icon></app-cart-icon>\n  <router-outlet></router-outlet>\n  <app-cart-icon></app-cart-icon>\n</div>\n\n"
 
 /***/ }),
 
@@ -158,6 +158,86 @@ exports.AppModule = AppModule;
 
 /***/ }),
 
+/***/ "../../../../../src/app/cart/cart-icon/cart-icon.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".cart-link {\r\n  float: right;\r\n  padding: 10px;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/cart/cart-icon/cart-icon.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n  <a [routerLink]=\"['/cart']\" class=\"cart-link\">\r\n    <span class=\"glyphicon glyphicon-shopping-cart\"></span>\r\n    <span>{{contentCount}}</span>\r\n    Your Cart\r\n    <span>{{contentPrice}}</span>\r\n  </a>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/cart/cart-icon/cart-icon.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var Cartservice = __webpack_require__("../../../../../src/app/cart/cart-service/cart.service.ts");
+var CartService = Cartservice.CartService;
+var CartIconComponent = (function () {
+    function CartIconComponent(_cartService) {
+        this._cartService = _cartService;
+    }
+    CartIconComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.updateContentCount();
+        //Subscribing to the cartLineItemUpdated event and then retrieving the cart again to get number of items in it
+        this._cartService.cartLineItemUpdated.subscribe(function (value) {
+            console.log("Received " + JSON.stringify(value) + " from cartService event.");
+            _this.updateContentCount();
+        });
+    };
+    CartIconComponent.prototype.updateContentCount = function () {
+        var _this = this;
+        this._cartService.getCart().subscribe(function (cart) {
+            //Equivalent to "cart.CartLineItems.Select(l => l.count).Sum(c => c); in C#"
+            _this.contentCount = cart.cartLineItems.map(function (l) { return l.count; }).reduce(function (a, b) { return a + b; }, 0);
+            _this.contentPrice = cart.priceFormatted;
+        });
+    };
+    return CartIconComponent;
+}());
+CartIconComponent = __decorate([
+    core_1.Component({
+        selector: 'app-cart-icon',
+        template: __webpack_require__("../../../../../src/app/cart/cart-icon/cart-icon.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/cart/cart-icon/cart-icon.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof CartService !== "undefined" && CartService) === "function" && _a || Object])
+], CartIconComponent);
+exports.CartIconComponent = CartIconComponent;
+var _a;
+//# sourceMappingURL=cart-icon.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/cart/cart-routing.module.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -217,11 +297,16 @@ var CartService = (function () {
     function CartService(_httpClient) {
         this._httpClient = _httpClient;
         this._url = '/api/cart';
+        this.cartLineItemUpdated = new core_1.EventEmitter();
     }
     CartService.prototype.addToCart = function (variantId) {
+        var _this = this;
         console.log("Adding variant with id " + variantId + " to cart...");
         return this._httpClient.post(this._url + '/' + variantId, {}, {})
-            .do(function (data) { return console.log("Result from service: " + JSON.stringify(data)); })
+            .do(function (data) {
+            console.log("Result from service: " + JSON.stringify(data));
+            _this.cartLineItemUpdated.emit(data);
+        })
             .catch(this.handleError);
     };
     ;
@@ -239,6 +324,10 @@ var CartService = (function () {
     ;
     return CartService;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], CartService.prototype, "cartLineItemUpdated", void 0);
 CartService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
@@ -266,6 +355,7 @@ var common_1 = __webpack_require__("../../../common/@angular/common.es5.js");
 var cart_routing_module_1 = __webpack_require__("../../../../../src/app/cart/cart-routing.module.ts");
 var cart_service_1 = __webpack_require__("../../../../../src/app/cart/cart-service/cart.service.ts");
 var cart_component_1 = __webpack_require__("../../../../../src/app/cart/cart/cart.component.ts");
+var cart_icon_component_1 = __webpack_require__("../../../../../src/app/cart/cart-icon/cart-icon.component.ts");
 var CartModule = (function () {
     function CartModule() {
     }
@@ -277,7 +367,8 @@ CartModule = __decorate([
             common_1.CommonModule,
             cart_routing_module_1.CartRoutingModule
         ],
-        declarations: [cart_component_1.CartComponent],
+        declarations: [cart_component_1.CartComponent, cart_icon_component_1.CartIconComponent],
+        exports: [cart_icon_component_1.CartIconComponent],
         providers: [cart_service_1.CartService]
     })
 ], CartModule);
@@ -294,7 +385,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".cart-total-row {\r\n  font-weight: bold\r\n}\r\n", ""]);
 
 // exports
 
@@ -307,7 +398,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/cart/cart/cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <h2>Your current shopping cart!</h2>\r\n\r\n  <div class=\"table-responsive\">\r\n    <table class=\"table table-striped\" *ngIf=\"cart && cart.cartLineItems && cart.cartLineItems.length > 0\">\r\n      <thead>\r\n      <tr>\r\n        <th>Variant</th>\r\n        <th>Quantity</th>\r\n        <th>Price</th>\r\n      </tr>\r\n      </thead>\r\n      <tbody>\r\n      <tr *ngFor=\"let cartLineItem of cart.cartLineItems\">\r\n        <td>{{cartLineItem.variantName}}</td>\r\n        <td>{{cartLineItem.count}}</td>\r\n        <td></td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n    <p *ngIf=\"!cart || !cart.cartLineItems || cart.cartLineItems.length === 0\">\r\n      You're shopping cart is empty! Go <a [routerLink]=\"['/products']\">here</a> to find some products!\r\n    </p>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div>\r\n  <h2>Your current shopping cart!</h2>\r\n\r\n  <div class=\"table-responsive\">\r\n    <table class=\"table table-striped\" *ngIf=\"cart && cart.cartLineItems && cart.cartLineItems.length > 0\">\r\n      <thead>\r\n      <tr>\r\n        <th>Variant</th>\r\n        <th>Quantity</th>\r\n        <th>Price</th>\r\n      </tr>\r\n      </thead>\r\n      <tbody>\r\n      <tr *ngFor=\"let cartLineItem of cart.cartLineItems\">\r\n        <td>{{cartLineItem.variantName}}</td>\r\n        <td>{{cartLineItem.count}}</td>\r\n        <td>{{cartLineItem.priceFormatted}}</td>\r\n      </tr>\r\n      <tr class=\"cart-total-row\">\r\n        <td>Total</td>\r\n        <td>{{cart.cartContentCount}}</td>\r\n        <td>{{cart.priceFormatted}}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n    <p *ngIf=\"!cart || !cart.cartLineItems || cart.cartLineItems.length === 0\">\r\n      You're shopping cart is empty! Go <a [routerLink]=\"['/products']\">here</a> to find some products!\r\n    </p>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -336,7 +427,10 @@ var CartComponent = (function () {
     CartComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._cartService.getCart()
-            .subscribe(function (data) { return _this.cart = data; });
+            .subscribe(function (data) {
+            _this.cart = data;
+            _this.cartContentCount = data.cartLineItems.map(function (cli) { return cli.count; }).reduce(function (a, b) { return a + b; }, 0);
+        });
     };
     return CartComponent;
 }());

@@ -297,6 +297,7 @@
     <Compile Include="Models\ViewOrderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\AdminController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -382,6 +383,7 @@
     <Content Include="tsScripts\tsconfig.json" />
     <Content Include="typings.json" />
     <Content Include="Views\Home\NgApp.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,5 +5,8 @@ export interface ICart
 {
   id: string;
   customerId: string;
-  cartLineItems: ICartLineItem[]; 
+  cartLineItems: ICartLineItem[];
+  price: number;
+  currency: string;
+  priceFormatted: string;
 }
