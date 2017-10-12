@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Security.Claims;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using DDD.CommercePoC.SharedKernel.Interfaces;
 using DDD.CommercePoC.Shop.Core.Interfaces;
@@ -24,11 +22,16 @@ namespace DDD.CommercePoC.Web.Controllers
 
         public ActionResult Index()
         {
-            //var user = _currentUser.User.GetApplicationUser(_httpContext);
+            var user = _currentUser.User.GetApplicationUser(_httpContext);
 
-            //return View().WithInfo($"CartId {_currentCart.Cart.Id}. Cart Items count: {_currentCart.Cart.CartLineItems.Count}. " +
-            //                       $"Username: {user.UserName}. CustomerId: {user.CustomerId}");
-            return View();
+            return View()
+                .WithInfo($"CartId {_currentCart.Cart.Id}. " +
+                          $"Cart Items count: {_currentCart.Cart.CartLineItems.Count}. " +
+                          $"Username: {user.UserName}. " +
+                          $"CustomerId: {user.CustomerId}")
+                .WithWarning("ARGH!")
+                .WithError("DOH!")
+                .WithSuccess("HURRAY!");
         }
         
         [Route("shop")]
@@ -53,11 +56,6 @@ namespace DDD.CommercePoC.Web.Controllers
         
         public ActionResult Hello()
         {
-            //using (_unitOfWork.BeginTransaction())
-            //{
-            //    var guid = Guid.NewGuid();
-            //    _orderRepository.Add(new Order(guid, new Guid("11111111-1111-1111-1111-111111111111")));
-            //}
             return View();
         }
     }
