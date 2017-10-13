@@ -101,6 +101,7 @@
     <Compile Include="Tasks\IRunOnStartup.cs" />
     <Compile Include="Tasks\IRunOnError.cs" />
     <Compile Include="Tasks\IRunOnRequest.cs" />
+    <Compile Include="UserRoles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

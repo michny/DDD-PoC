@@ -1,8 +1,9 @@
 ﻿using System.Web.Mvc;
+using DDD.CommercePoC.SharedKernel;
 
 namespace DDD.CommercePoC.Web.Views
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = UserRoles.Admin)]
     public class AdminController : Controller
     {
         // GET: Admin

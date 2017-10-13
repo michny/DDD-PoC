@@ -27,8 +27,8 @@ namespace DDD.CommercePoC.Web.Controllers
             return View()
                 .WithInfo($"CartId {_currentCart.Cart.Id}. " +
                           $"Cart Items count: {_currentCart.Cart.CartLineItems.Count}. " +
-                          $"Username: {user.UserName}. " +
-                          $"CustomerId: {user.CustomerId}")
+                          $"Username: {user?.UserName}. " +
+                          $"CustomerId: {user?.CustomerId}")
                 .WithWarning("ARGH!")
                 .WithError("DOH!")
                 .WithSuccess("HURRAY!");

@@ -260,6 +260,7 @@
     <Compile Include="Controllers\Api\BaseApiController.cs" />
     <Compile Include="Controllers\Api\CartController.cs" />
     <Compile Include="Controllers\Api\ProductsController.cs" />
+    <Compile Include="Controllers\Api\CustomerController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -286,12 +287,14 @@
     <Compile Include="Models\CartModels\CartLineItemViewModel.cs" />
     <Compile Include="Models\CartModels\CartViewModel.cs" />
     <Compile Include="Models\CartModels\CartViewModelFactory.cs" />
+    <Compile Include="Models\CustomerModels\CustomerViewModelFactory.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IViewModelFactory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductModels\ProductViewModel.cs" />
     <Compile Include="Models\ProductModels\ProductViewModelFactory.cs" />
     <Compile Include="Models\ProductModels\VariantViewModel.cs" />
+    <Compile Include="Models\CustomerModels\CustomerViewModel.cs" />
     <Compile Include="Models\ViewOrderItemViewModel.cs" />
     <Compile Include="Models\ViewOrderListViewModel.cs" />
     <Compile Include="Models\ViewOrderViewModel.cs" />
