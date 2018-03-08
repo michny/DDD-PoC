@@ -52,3 +52,4 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\bin\Debug
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\bin\Debug\DelegateDecompiler.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\bin\Debug\Mono.Reflection.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\obj\Debug\DDD.CommercePoC.Shop.Data.Access.csproj.CoreCompileInputs.cache
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Shop.Data.Access\obj\Debug\DDD.CommercePoC.Shop.Data.Access.csproj.CopyComplete

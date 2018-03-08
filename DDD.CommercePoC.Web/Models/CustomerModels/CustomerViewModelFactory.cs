@@ -17,7 +17,7 @@ namespace DDD.CommercePoC.Web.Models.CustomerModels
 
         public CustomerViewModel Create(Customer entity)
         {
-            throw new NotImplementedException("Use instead Create(Customer, ICurrentUser)");
+            throw new NotImplementedException("Use instead Create(Customer, IPrincipal)");
         }
 
         public CustomerViewModel Create(Customer entity, IPrincipal userInfo)

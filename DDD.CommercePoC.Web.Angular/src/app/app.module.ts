@@ -8,6 +8,7 @@ import { ProductsModule } from './products/products.module';
 import { AppRoutingModule } from './app-routing.module';
 import { IndexComponent } from './index/index.component';
 import { CartModule } from './cart/cart.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CartModule } from './cart/cart.module';
     FormsModule,
     ProductsModule,
     CartModule,
+    AdminModule,
     AppRoutingModule
   ],
   providers: [],

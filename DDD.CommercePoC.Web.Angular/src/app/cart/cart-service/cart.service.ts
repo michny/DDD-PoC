@@ -27,6 +27,16 @@ export class CartService {
       .catch(this.handleError);
   };
 
+  removeFromCart(variantId: string): Observable<ICartLineItem> {
+    console.log(`Removing variant with id ${variantId} to cart...`);
+    return this._httpClient.delete(this._url + '/' + variantId)
+      .do(data => {
+        console.log(`Result from service: ${JSON.stringify(data)}`);
+        this.cartLineItemUpdated.emit(data as ICartLineItem);
+      })
+      .catch(this.handleError);
+  } 
+
   getCart(): Observable<ICart> {
     console.log('Getting current cart');
     return this._httpClient.get(this._url)

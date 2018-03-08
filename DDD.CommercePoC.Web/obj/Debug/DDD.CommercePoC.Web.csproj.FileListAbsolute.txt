@@ -316,3 +316,4 @@ C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Web\obj\Debug\DDD.Commerce
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Web\obj\Debug\DDD.CommercePoC.Web.pdb
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Web\bin\System.ValueTuple.dll
 C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Web\obj\Debug\DDD.CommercePoC.Web.csproj.CoreCompileInputs.cache
+C:\Users\mny\Documents\GitHub\DDD-PoC\DDD.CommercePoC.Web\obj\Debug\DDD.CommercePoC.Web.csproj.CopyComplete

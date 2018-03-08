@@ -17,6 +17,202 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
+/***/ "../../../../../src/app/admin/admin-index/admin-index.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin-index/admin-index.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin-index works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin-index/admin-index.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var AdminIndexComponent = (function () {
+    function AdminIndexComponent() {
+    }
+    AdminIndexComponent.prototype.ngOnInit = function () {
+    };
+    return AdminIndexComponent;
+}());
+AdminIndexComponent = __decorate([
+    core_1.Component({
+        selector: 'app-admin-index',
+        template: __webpack_require__("../../../../../src/app/admin/admin-index/admin-index.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/admin-index/admin-index.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AdminIndexComponent);
+exports.AdminIndexComponent = AdminIndexComponent;
+//# sourceMappingURL=admin-index.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin-products/admin-products.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin-products/admin-products.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin-products works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin-products/admin-products.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var AdminProductsComponent = (function () {
+    function AdminProductsComponent() {
+    }
+    AdminProductsComponent.prototype.ngOnInit = function () {
+    };
+    return AdminProductsComponent;
+}());
+AdminProductsComponent = __decorate([
+    core_1.Component({
+        selector: 'app-admin-products',
+        template: __webpack_require__("../../../../../src/app/admin/admin-products/admin-products.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/admin-products/admin-products.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AdminProductsComponent);
+exports.AdminProductsComponent = AdminProductsComponent;
+//# sourceMappingURL=admin-products.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin-routing.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var router_1 = __webpack_require__("../../../router/@angular/router.es5.js");
+var admin_index_component_1 = __webpack_require__("../../../../../src/app/admin/admin-index/admin-index.component.ts");
+var admin_products_component_1 = __webpack_require__("../../../../../src/app/admin/admin-products/admin-products.component.ts");
+var routes = [
+    { path: 'admin/index', component: admin_index_component_1.AdminIndexComponent },
+    { path: 'admin/products', component: admin_products_component_1.AdminProductsComponent }
+];
+var AdminRoutingModule = (function () {
+    function AdminRoutingModule() {
+    }
+    return AdminRoutingModule;
+}());
+AdminRoutingModule = __decorate([
+    core_1.NgModule({
+        imports: [router_1.RouterModule.forChild(routes)],
+        exports: [router_1.RouterModule]
+    })
+], AdminRoutingModule);
+exports.AdminRoutingModule = AdminRoutingModule;
+//# sourceMappingURL=admin-routing.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var common_1 = __webpack_require__("../../../common/@angular/common.es5.js");
+var forms_1 = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var admin_routing_module_1 = __webpack_require__("../../../../../src/app/admin/admin-routing.module.ts");
+var admin_index_component_1 = __webpack_require__("../../../../../src/app/admin/admin-index/admin-index.component.ts");
+var admin_products_component_1 = __webpack_require__("../../../../../src/app/admin/admin-products/admin-products.component.ts");
+var AdminModule = (function () {
+    function AdminModule() {
+    }
+    return AdminModule;
+}());
+AdminModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule,
+            forms_1.FormsModule,
+            admin_routing_module_1.AdminRoutingModule
+        ],
+        declarations: [admin_index_component_1.AdminIndexComponent, admin_products_component_1.AdminProductsComponent]
+    })
+], AdminModule);
+exports.AdminModule = AdminModule;
+//# sourceMappingURL=admin.module.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/app-routing.module.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -130,6 +326,7 @@ var products_module_1 = __webpack_require__("../../../../../src/app/products/pro
 var app_routing_module_1 = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 var index_component_1 = __webpack_require__("../../../../../src/app/index/index.component.ts");
 var cart_module_1 = __webpack_require__("../../../../../src/app/cart/cart.module.ts");
+var admin_module_1 = __webpack_require__("../../../../../src/app/admin/admin.module.ts");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -147,6 +344,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             products_module_1.ProductsModule,
             cart_module_1.CartModule,
+            admin_module_1.AdminModule,
             app_routing_module_1.AppRoutingModule
         ],
         providers: [],
@@ -310,6 +508,16 @@ var CartService = (function () {
             .catch(this.handleError);
     };
     ;
+    CartService.prototype.removeFromCart = function (variantId) {
+        var _this = this;
+        console.log("Removing variant with id " + variantId + " to cart...");
+        return this._httpClient.delete(this._url + '/' + variantId)
+            .do(function (data) {
+            console.log("Result from service: " + JSON.stringify(data));
+            _this.cartLineItemUpdated.emit(data);
+        })
+            .catch(this.handleError);
+    };
     CartService.prototype.getCart = function () {
         console.log('Getting current cart');
         return this._httpClient.get(this._url)
@@ -398,7 +606,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/cart/cart/cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <h2>Your current shopping cart!</h2>\r\n\r\n  <div class=\"table-responsive\">\r\n    <table class=\"table table-striped\" *ngIf=\"cart && cart.cartLineItems && cart.cartLineItems.length > 0\">\r\n      <thead>\r\n      <tr>\r\n        <th>Variant</th>\r\n        <th>Quantity</th>\r\n        <th>Price</th>\r\n      </tr>\r\n      </thead>\r\n      <tbody>\r\n      <tr *ngFor=\"let cartLineItem of cart.cartLineItems\">\r\n        <td>{{cartLineItem.variantName}}</td>\r\n        <td>{{cartLineItem.count}}</td>\r\n        <td>{{cartLineItem.priceFormatted}}</td>\r\n      </tr>\r\n      <tr class=\"cart-total-row\">\r\n        <td>Total</td>\r\n        <td>{{cart.cartContentCount}}</td>\r\n        <td>{{cart.priceFormatted}}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n    <p *ngIf=\"!cart || !cart.cartLineItems || cart.cartLineItems.length === 0\">\r\n      You're shopping cart is empty! Go <a [routerLink]=\"['/products']\">here</a> to find some products!\r\n    </p>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div>\r\n  <h2>Your current shopping cart!</h2>\r\n\r\n  <div class=\"table-responsive\">\r\n    <table class=\"table table-striped\" *ngIf=\"cart && cart.cartLineItems && cart.cartLineItems.length > 0\">\r\n      <thead>\r\n      <tr>\r\n        <th>Variant</th>\r\n        <th>Quantity</th>\r\n        <th>Price</th>\r\n      </tr>\r\n      </thead>\r\n      <tbody>\r\n      <tr *ngFor=\"let cartLineItem of cart.cartLineItems\">\r\n        <td>{{cartLineItem.variantName}}</td>\r\n        <td>\r\n          <span class=\"glyphicon glyphicon-minus\" (click)=\"removeVariant(cartLineItem.variantId);\"></span>\r\n          {{cartLineItem.count}}\r\n          <span class=\"glyphicon glyphicon-plus\" (click)=\"addVariant(cartLineItem.variantId);\"></span>\r\n        </td>\r\n        <td>{{cartLineItem.priceFormatted}}</td>\r\n        <td></td>\r\n      </tr>\r\n      <tr class=\"cart-total-row\">\r\n        <td>Total</td>\r\n        <td>{{cart.cartContentCount}}</td>\r\n        <td>{{cart.priceFormatted}}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n    <p *ngIf=\"!cart || !cart.cartLineItems || cart.cartLineItems.length === 0\">\r\n      You're shopping cart is empty! Go <a [routerLink]=\"['/products']\">here</a> to find some products!\r\n    </p>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -430,6 +638,22 @@ var CartComponent = (function () {
             .subscribe(function (data) {
             _this.cart = data;
             _this.cartContentCount = data.cartLineItems.map(function (cli) { return cli.count; }).reduce(function (a, b) { return a + b; }, 0);
+        });
+    };
+    CartComponent.prototype.removeVariant = function (variantId) {
+        var _this = this;
+        this._cartService.removeFromCart(variantId)
+            .subscribe(function (data) {
+            console.log("Removed Variant: " + JSON.stringify(data));
+            _this.ngOnInit();
+        });
+    };
+    CartComponent.prototype.addVariant = function (variantId) {
+        var _this = this;
+        this._cartService.addToCart(variantId)
+            .subscribe(function (data) {
+            console.log("Added Variant: " + JSON.stringify(data));
+            _this.ngOnInit();
         });
     };
     return CartComponent;
@@ -517,7 +741,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".product-details-id-header {\r\n  font-style: italic;\r\n  font-size: 75%;\r\n  color: #696969\r\n}\r\n\r\n.btn-add-to-cart {\r\n  margin: 10px;\r\n  vertical-align: central\r\n}\r\n", ""]);
+exports.push([module.i, ".product-details-id-header {\r\n  font-style: italic;\r\n  font-size: 75%;\r\n  color: #696969\r\n}\r\n\r\n.btn-add-to-cart {\r\n  margin: 10px;\r\n  vertical-align: central\r\n}\r\n\r\n.image-full {\r\n\r\n}\r\n", ""]);
 
 // exports
 
@@ -530,7 +754,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/products/product-details/product-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"product\">\n  <div class=\"row\">\n    <h1>{{product.name}}</h1>\n    <p class=\"product-details-id-header\">{{product.id}}</p>\n  </div>\n  <br/>\n  <div class=\"row\">\n    <div>\n      <select *ngIf=\"product.variants && product.variants.length\" [(ngModel)]=\"selectedVariant\">\n        <option *ngFor=\"let variant of product.variants\" [ngValue]=\"variant\">{{variant.name}}</option>\n      </select>\n      <span>Price: {{selectedVariant.priceFormatted}}</span>\n      <button class=\"btn btn-warning glyphicon glyphicon-shopping-cart btn-add-to-cart\" (click)=\"addToCart()\">Add to cart</button>\n    </div>\n\n    <div class=\"table-responsive col-md-4\">\n      <table class=\"table table-hover\">\n        <tbody>\n        <tr>\n          <td>Name</td>\n          <td>{{product.name}}</td>\n        </tr>\n        <tr>\n          <td>Id</td>\n          <td>{{product.id}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n    <div class=\"col-md-6\">\n  \n    </div>\n  </div>\n  <div class=\"row\">\r\n    <a class=\"btn btn-default\" [routerLink]=\"['/products']\">Back to products</a>\r\n  </div>\n</div>\n\n"
+module.exports = "<div *ngIf=\"product\">\r\n  <div class=\"row\">\r\n    <h1>{{product.name}}</h1>\r\n    <p class=\"product-details-id-header\">{{product.id}}</p>\r\n  </div>\r\n  <br/>\r\n  <div class=\"row\">\r\n    <div>\r\n      <select *ngIf=\"product.variants && product.variants.length\" [(ngModel)]=\"selectedVariant\">\r\n        <option *ngFor=\"let variant of product.variants\" [ngValue]=\"variant\">{{variant.name}}</option>\r\n      </select>\r\n      <span>Price: {{selectedVariant.priceFormatted}}</span>\r\n      <button class=\"btn btn-warning glyphicon glyphicon-shopping-cart btn-add-to-cart\" (click)=\"addToCart()\">Add to cart</button>\r\n    </div>\r\n\r\n    <div class=\"table-responsive col-md-4\">\r\n      <table class=\"table table-hover\">\r\n        <tbody>\r\n        <tr>\r\n          <td>Name</td>\r\n          <td>{{product.name}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Id</td>\r\n          <td>{{product.id}}</td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n      <img class=\"image-full\" [src]=\"selectedVariant.imageUrl\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <a class=\"btn btn-default\" [routerLink]=\"['/products']\">Back to products</a>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -645,7 +869,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\r\n  \r\n}\r\n", ""]);
+exports.push([module.i, ".image-preview {\r\n  height: 30px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -658,7 +882,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/products/product-list/product-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>All products</h1>\n\n<div class=\"table-responsive\">\n  <table class=\"table table-striped\" *ngIf=\"allProducts && allProducts.length\">\n    <thead>\n    <tr>\n      <th>Id</th>\n      <th>Name</th>\n      <th>First variant price</th>\n    </tr>\n    </thead>\n    <tbody>\n    <tr *ngFor=\"let product of filteredProducts\">\n      <td><a [routerLink]=\"['/products/', product.id]\">{{product.id}}</a></td>\n      <td>{{product.name}}</td>\n      <td>{{product.variants[0].priceFormatted}}</td>\n    </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<h1>All products</h1>\n\n<div class=\"table-responsive\">\n  <table class=\"table table-striped\" *ngIf=\"allProducts && allProducts.length\">\n    <thead>\n      <tr>\r\n        <th></th>\r\n        <th>Id</th>\r\n        <th>Name</th>\r\n        <th>First variant price</th>\r\n      </tr>\n    </thead>\n    <tbody>\n    <tr *ngFor=\"let product of filteredProducts\">\n      <td><img class=\"image-preview\" [src]=\"product.variants[0].imageUrl\" /></td>\n      <td><a [routerLink]=\"['/products/', product.id]\">{{product.id}}</a></td>\n      <td>{{product.name}}</td>\n      <td>{{product.variants[0].priceFormatted}}</td>\n    </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 

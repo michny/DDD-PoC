@@ -75,6 +75,10 @@
     <Content Include="package.json" />
     <None Include="packages.config" />
     <Content Include="README.md" />
+    <Content Include="src\app\admin\admin-index\admin-index.component.css" />
+    <Content Include="src\app\admin\admin-index\admin-index.component.html" />
+    <Content Include="src\app\admin\admin-products\admin-products.component.css" />
+    <Content Include="src\app\admin\admin-products\admin-products.component.html" />
     <Content Include="src\app\cart\cart-icon\cart-icon.component.css" />
     <Content Include="src\app\cart\cart-icon\cart-icon.component.html" />
     <Content Include="src\app\cart\cart\cart.component.css" />
@@ -113,6 +117,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="e2e\app.e2e-spec.ts" />
     <TypeScriptCompile Include="e2e\app.po.ts" />
+    <TypeScriptCompile Include="src\app\admin\admin-index\admin-index.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\admin\admin-index\admin-index.component.ts" />
+    <TypeScriptCompile Include="src\app\admin\admin-products\admin-products.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\admin\admin-products\admin-products.component.ts" />
+    <TypeScriptCompile Include="src\app\admin\admin-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\admin\admin.module.ts" />
     <TypeScriptCompile Include="src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />

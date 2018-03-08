@@ -13,8 +13,13 @@
       <tbody>
       <tr *ngFor="let cartLineItem of cart.cartLineItems">
         <td>{{cartLineItem.variantName}}</td>
-        <td>{{cartLineItem.count}}</td>
+        <td>
+          <span class="glyphicon glyphicon-minus" (click)="removeVariant(cartLineItem.variantId);"></span>
+          {{cartLineItem.count}}
+          <span class="glyphicon glyphicon-plus" (click)="addVariant(cartLineItem.variantId);"></span>
+        </td>
         <td>{{cartLineItem.priceFormatted}}</td>
+        <td></td>
       </tr>
       <tr class="cart-total-row">
         <td>Total</td>

@@ -25,4 +25,19 @@ export class CartComponent implements OnInit {
       });
   }
 
+  removeVariant(variantId: string) {
+    this._cartService.removeFromCart(variantId)
+      .subscribe(data => {
+        console.log(`Removed Variant: ${JSON.stringify(data)}`);
+        this.ngOnInit();
+      });
+  }
+
+  addVariant(variantId: string) {
+    this._cartService.addToCart(variantId)
+      .subscribe(data => {
+        console.log(`Added Variant: ${JSON.stringify(data)}`);
+        this.ngOnInit();
+      });
+  }
 }
